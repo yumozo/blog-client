@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 export default function Home() {
   return (
-    <div className='text-center'>
+    <div className="text-center">
       <p>Hello!</p>
     </div>
   )

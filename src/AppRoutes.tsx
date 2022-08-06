@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import Home from './components/Home'
 import Projects from './components/Projects'
 
@@ -10,11 +10,11 @@ const AppRoutes = [
   {
     path: '/myprojs',
     element: <Projects />
-  },
+  }
   // {
   //   path: '/ohhellothere',
   //   element: <Meintheinternet />
   // },
 ]
 
-export default AppRoutes;
+export default AppRoutes
