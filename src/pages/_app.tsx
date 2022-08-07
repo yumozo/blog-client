@@ -1,9 +1,9 @@
 // Layout could be here
 
 import type { AppProps } from 'next/app'
-import Layout from '../src/components/Layout'
+import Layout from '@components/Layout'
 import App from 'next/app'
-import '../App.css'
+import '../../styles/global.css'
 
 if (
   typeof window !== 'undefined' &&
@@ -13,7 +13,7 @@ if (
 }
 
 // ADDED ROUTER PROP
-export function MyApp({ Component, pageProps, router }: AppProps) {
+export default function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     // <Fonts/>
     <Layout router={router}>

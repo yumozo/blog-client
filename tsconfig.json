@@ -26,15 +26,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"]
-    }
+      "@components/*": [
+        "components/*"
+      ]
+    },
+    "incremental": true
   },
   "include": [
-    "src/**/*.{ts,tsx}",
-    "pages/*.tsx",
-    "pages/**/*.tsx"
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

@@ -1,18 +1,13 @@
 import React from 'react'
 // import AppRoutes from '../src/AppRoutes'
-import NavMenu from '../src/components/NavMenu/NavMenu'
-import Blog from '../src/containers/blog/Blog'
-import Footer from '../src/containers/footer/Footer'
-import './App.css'
+import NavMenu from '../components/NavMenu'
+import Blog from '../containers/blog/Blog'
+import Footer from '../containers/footer/Footer'
 
 // It was App module in CRA
 export default function HomePage() {
   return (
     <>
-      <div>
-        <NavMenu />
-      </div>
-
       <div
         className="flex flex-col
       items-center"
