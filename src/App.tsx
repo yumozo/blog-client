@@ -1,12 +1,12 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Router, Routes } from 'react-router-dom'
 import AppRoutes from './AppRoutes'
 import NavMenu from './components/NavMenu/NavMenu'
 import './App.css'
 import Blog from './containers/blog/Blog'
 import Footer from './containers/footer/Footer'
 
-export default function App() {
+export default function App(router: any) {
   return (
     <>
       <div>
