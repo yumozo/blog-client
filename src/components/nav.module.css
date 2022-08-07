@@ -6,35 +6,36 @@
   padding: 2rem 6rem;
 }
 
-.HP__navbar-links {
+.HP__navbar_links {
   flex: 1;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.HP__navbar-links_logo {
+.HP__navbar_links_logo {
   margin-right: 2rem;
 }
 
-.HP__navbar-links_logo img {
+.HP__navbar_links_logo img {
   width: 32px;
   height: 32px;
 }
 
-.HP__navbar-links_container {
+.HP__navbar_links_container {
   @apply flex flex-row;
 }
 
-.HP__navbar-sign {
+.HP__navbar_sign {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.HP__navbar-links_container p,
-.HP__navbar-sign p,
-.HP__navbar-menu_container p {
-  @apply text-white font-medium text-lg mx-4;
+.HP__navbar_links_container p,
+.HP__navbar_sign p,
+.HP__navbar_menu_container p {
+  color: white;
+  @apply font-medium text-lg mx-4;
   font-family: var(--font-family);
 }

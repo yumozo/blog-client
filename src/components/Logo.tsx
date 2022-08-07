@@ -11,7 +11,7 @@ const LogoStyle = styled.span`
   }
 `
 
-export default function Logo() {
+export function Logo1() {
   return (
     <Link href="/">
       <LogoStyle>

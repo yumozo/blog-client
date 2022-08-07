@@ -1,7 +1,6 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
 import { Menu, Transition } from '@headlessui/react'
-import Logo from '@components/Logo'
 import { AppProps } from 'next/app' // ???
 import styles from './nav.module.css'
 
@@ -18,12 +17,12 @@ const LinkItem = ({ href, target, children, ...props }: any) => {
 export default function NavMenu({ path }: any) {
   return (
     <nav className={styles.HP__navbar}>
-      <div className={styles.HP__navbar-links}>
-        <div className={styles.HP__navbar-links_logo}>
-          <Logo />
+      <div className={styles.HP__navbar_links}>
+        <div className={styles.HP__navbar_links_logo}>
+          {/* <Logo /> */}
         </div>
 
-        <div className="HP__navbar-links_container">
+        <div className={styles.HP__navbar_links_container}>
           <p>
             <Link href="/">Home</Link>
           </p>
@@ -37,7 +36,7 @@ export default function NavMenu({ path }: any) {
           </p>
         </div>
 
-        <div className="HP__navbar-links_dropdown">
+        <div className={styles.HP__navbar_links_dropdown}>
           <Menu as="div" className="h-7 relative inline-block text-left">
             <div className="h-5 my-1">
               <Menu.Button className="inline-flex justify-center">
