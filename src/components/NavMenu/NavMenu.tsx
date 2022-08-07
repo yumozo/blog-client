@@ -1,17 +1,14 @@
-import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
-import logo from 'assets/logo192.png'
+import { Fragment } from 'react'
+import Link from 'next/link'
 import './navmenu.css'
 import { Menu, Transition } from '@headlessui/react'
+import Logo from '@components/Logo'
+import { AppProps } from 'next/app' // ???
 
-const LinkItem = ({ href, target, children, ...props }) => {
+const LinkItem = ({ href, target, children, ...props }: any) => {
   return (
     <Menu.Item>
-      <Link
-        to={href}
-        className='block px-4 py-2 text-sm'
-        {...props}
-      >
+      <Link href={href} className="block px-4 py-2 text-sm" {...props}>
         {children}
       </Link>
     </Menu.Item>
@@ -23,15 +20,15 @@ export default function NavMenu() {
     <nav className="HP__navbar">
       <div className="HP__navbar-links">
         <div className="HP__navbar-links_logo">
-          <img src={logo} alt="logo" />
+          <Logo />
         </div>
 
         <div className="HP__navbar-links_container">
           <p>
-            <Link to="/">Home</Link>
+            <Link href="/">Home</Link>
           </p>
           <p>
-            <Link to="/myprojs">My Projects</Link>
+            <Link href="/myprojs">My Projects</Link>
           </p>
           <p>
             <a href="https://github.com/zyrjanow" target="_blank">
@@ -78,16 +75,13 @@ export default function NavMenu() {
                 focus:outline-none"
               >
                 <div className="py-1">
-                  <LinkItem target='_self' href="/" >
+                  <LinkItem target="_self" href="/">
                     Home
                   </LinkItem>
-                  <LinkItem target='_self' href="/projs" >
+                  <LinkItem target="_self" href="/projs">
                     Projects
                   </LinkItem>
-                  <LinkItem
-                    target="_blank"
-                    href="https://github.com/zyrjanow"
-                  >
+                  <LinkItem target="_blank" href="https://github.com/zyrjanow">
                     GitHub
                   </LinkItem>
                 </div>

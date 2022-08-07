@@ -4,9 +4,8 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext",
+      "esnext"
     ],
-    "baseUrl": "./src",
     "allowJs": true,
     "removeComments": true,
     "skipLibCheck": true,
@@ -28,9 +27,14 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    // "typeRoots": ["src/types"]
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"]
+    }
   },
   "include": [
-    "src/**/*.{ts,tsx}"
+    "src/**/*.{ts,tsx}",
+    "pages/*.tsx",
+    "pages/**/*.tsx"
   ]
 }

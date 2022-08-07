@@ -1,7 +1,5 @@
 module.exports = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     letterSpacing: {
       tight: '-.-015em'
