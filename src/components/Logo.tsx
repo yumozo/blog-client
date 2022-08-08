@@ -2,16 +2,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styled from '@emotion/styled'
 
-const LogoStyle = styled.span`
+const LogoStyle = styled.div`
   img {
-    transition: 200ms ease;
+    transition: 400ms ease;
   }
   &:hover img {
     transform: rotate(180deg);
   }
 `
 
-export function Logo1() {
+export default function Logo() {
   return (
     <Link href="/">
       <LogoStyle>

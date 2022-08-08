@@ -1,10 +1,8 @@
 import React from 'react'
 // import AppRoutes from '../src/AppRoutes'
-import NavMenu from '../components/NavMenu'
-import Blog from '../containers/blog/Blog'
-import Footer from '../containers/footer/Footer'
 
 // It was App module in CRA
+// GONNA BE HOME PAGE, TAKE OUT OF HERE ALL THE SHIT
 export default function HomePage() {
   return (
     <>
@@ -19,11 +17,7 @@ export default function HomePage() {
           </div>
         </main>
 
-        <Blog />
-      </div>
-
-      <div>
-        <Footer />
+        {/* <Blog /> */}
       </div>
     </>
   )

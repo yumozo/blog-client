@@ -1,3 +1,4 @@
+import Footer from 'containers/footer/Footer'
 import Head from 'next/head'
 import NavMenu from './NavMenu'
 
@@ -17,14 +18,11 @@ export default function Layout({ children, router }: any) {
         <title>Homepage</title>
       </Head>
 
-      <div
-        className="flex flex-col
-      items-center"
-      >
-        <NavMenu path={router.asPath} />
+      <NavMenu path={router.asPath} />
 
-        <div>{children}</div>
-      </div>
+      <div>{children}</div>
+
+      <Footer />
     </main>
   )
 }

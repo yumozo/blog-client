@@ -3,90 +3,33 @@ import Link from 'next/link'
 import { Menu, Transition } from '@headlessui/react'
 import { AppProps } from 'next/app' // ???
 import styles from './nav.module.css'
-
-const LinkItem = ({ href, target, children, ...props }: any) => {
-  return (
-    <Menu.Item>
-      <Link href={href} className="block px-4 py-2 text-sm" {...props}>
-        {children}
-      </Link>
-    </Menu.Item>
-  )
-}
+import styled from '@emotion/styled'
+import Logo from './Logo'
+import Dropdown from './DropDown'
+import SwitchMode from './SwitchMode'
 
 export default function NavMenu({ path }: any) {
   return (
     <nav className={styles.HP__navbar}>
-      <div className={styles.HP__navbar_links}>
-        <div className={styles.HP__navbar_links_logo}>
-          {/* <Logo /> */}
+      <div className={styles.HP__navbar_container}>
+        <div className={styles.HP__navbar_container_logo}>
+          <Logo />
         </div>
-
-        <div className={styles.HP__navbar_links_container}>
-          <p>
-            <Link href="/">Home</Link>
-          </p>
-          <p>
-            <Link href="/myprojs">My Projects</Link>
-          </p>
-          <p>
-            <a href="https://github.com/zyrjanow" target="_blank">
-              My GitHub
-            </a>
-          </p>
+        <div className={styles.HP__navbar_container_links}>
+          <div className={styles.HP__navbar_container_links_container}>
+            <p>
+              <Link href="/projects">My Projects</Link>
+            </p>
+            <p>
+              <a href="https://github.com/zyrjanow" target="_blank">
+                GitHub
+              </a>
+            </p>
+          </div>
         </div>
-
-        <div className={styles.HP__navbar_links_dropdown}>
-          <Menu as="div" className="h-7 relative inline-block text-left">
-            <div className="h-5 my-1">
-              <Menu.Button className="inline-flex justify-center">
-                {/* <DotsVerticalIcon className="h-5 w-5" aria-hidden="true" /> */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="white"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </Menu.Button>
-            </div>
-
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            >
-              <Menu.Items
-                className="origin-top-right w-24 absolute right-0
-                mt-2
-                bg-white ring-2 ring-gray-400/20 ring-opacity-5
-                focus:outline-none"
-              >
-                <div className="py-1">
-                  <LinkItem target="_self" href="/">
-                    Home
-                  </LinkItem>
-                  <LinkItem target="_self" href="/projs">
-                    Projects
-                  </LinkItem>
-                  <LinkItem target="_blank" href="https://github.com/zyrjanow">
-                    GitHub
-                  </LinkItem>
-                </div>
-              </Menu.Items>
-            </Transition>
-          </Menu>
+        <div className={styles.HP__navbar_container_menu}>
+          <SwitchMode />
+          <Dropdown />
         </div>
       </div>
     </nav>
