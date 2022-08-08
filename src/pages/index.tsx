@@ -1,25 +1,23 @@
-import React from 'react'
-// import AppRoutes from '../src/AppRoutes'
+import Article from '@components/Article'
+import Image from 'next/image'
 
-// It was App module in CRA
-// GONNA BE HOME PAGE, TAKE OUT OF HERE ALL THE SHIT
-export default function HomePage() {
+export default function Home() {
   return (
-    <>
-      <div
-        className="flex flex-col
-      items-center"
-      >
-        <main>
-          // Was AppRoutes
-          <div className="text-center">
-            <p>Hello!</p>
-          </div>
-        </main>
-
-        {/* <Blog /> */}
+    <Article>
+      <div className='flex justify-around'>
+        <div>
+          <Image className='rounded-full' src="/images/myPhoto.png" width="96" height="96" />
+        </div>
+        <div className='text-white max-w-xl'>
+          <p>
+            Yoh bitches! I'm a student from Siberia, interested in .NET &amp; web-dev stuff.
+            Wanna became a full-stack developer or expert in this domain whatever.
+            I don't really like it but u know.. I really love money!
+          </p>
+        </div>
       </div>
-    </>
+
+    </Article>
   )
 }
 
