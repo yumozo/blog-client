@@ -1,15 +1,15 @@
 .HP__navbar {
-  margin-inline-start: auto;
-  margin-inline-end: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 2rem 6rem;
+  padding: 1rem 2rem;
 }
 
 .HP__navbar_container {
-  @apply w-full;
+  @apply w-full max-w-xl;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
   display: inherit;
   justify-content: inherit;
 }

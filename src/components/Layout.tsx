@@ -1,4 +1,4 @@
-import Footer from 'containers/footer/Footer'
+import Footer from '@components/Footer'
 import Head from 'next/head'
 import NavMenu from './NavMenu'
 
