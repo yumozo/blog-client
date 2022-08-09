@@ -1,5 +1,24 @@
 import { useState } from 'react'
 import { Switch } from '@headlessui/react'
+import { SwitchHorizontalIcon } from '@heroicons/react/solid'
+
+function changeTheme(enabled: Boolean) {
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+
+  if (enabled) {
+    // Whenever the user explicitly chooses light mode
+    localStorage.theme = 'light'
+  } else {
+    // Whenever the user explicitly chooses dark mode
+    localStorage.theme = 'dark'
+  }
+  // Whenever the user explicitly chooses to respect the OS preference
+  //localStorage.removeItem('theme')
+}
 
 export default function Example() {
   const [enabled, setEnabled] = useState(false)
@@ -19,9 +38,10 @@ export default function Example() {
         <span className="sr-only">Switch theme</span>
         <span
           aria-hidden="true"
-          className={`${
-            enabled ? 'text-gray-800 bg-[#fcfcfc]' : 'text-white bg-[#121212]'
-          }
+          className={`${enabled
+            ? 'text-gray-800 bg-[#fcfcfc]'
+            : 'text-white bg-[#121212]'
+            }
             pointer-events-none inline-block h-[28px] w-[28px]
             rounded-md shadow-lg ring-0
             transition duration-200 ease-in-out`}
