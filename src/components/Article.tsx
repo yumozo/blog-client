@@ -17,9 +17,7 @@ export default function Article({ children, title }: any) {
           <title>{pageTitle}</title>
         </Head>
       )}
-      <Style>
-        {children}
-      </Style>
+      <Style>{children}</Style>
     </>
   )
 }

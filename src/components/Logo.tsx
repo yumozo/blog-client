@@ -15,7 +15,13 @@ export default function Logo() {
   return (
     <Link href="/">
       <LogoStyle>
-        <Image className='cursor-pointer' src="/assets/logo192.png" width={32} height={32} alt="logo" />
+        <Image
+          className="cursor-pointer"
+          src="/assets/logo192.png"
+          width={32}
+          height={32}
+          alt="logo"
+        />
       </LogoStyle>
     </Link>
   )

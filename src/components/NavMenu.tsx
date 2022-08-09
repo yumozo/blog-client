@@ -1,9 +1,7 @@
-import { Fragment } from 'react'
 import Link from 'next/link'
 import { Menu, Transition } from '@headlessui/react'
 import { AppProps } from 'next/app' // ???
 import styles from './nav.module.css'
-import styled from '@emotion/styled'
 import Logo from './Logo'
 import Dropdown from './DropDown'
 import SwitchMode from './SwitchMode'
@@ -16,19 +14,23 @@ export default function NavMenu({ path }: any) {
           <Logo />
         </div>
         <div className={styles.HP__navbar_container_links}>
-          <div className={styles.HP__navbar_container_links_container}>
-            <p>
-              <Link href="/projects">My Projects</Link>
-            </p>
-            <p>
-              <a href="https://github.com/zyrjanow" target="_blank">
-                GitHub
-              </a>
-            </p>
-          </div>
+          <p>
+            <Link href="/projects">
+              <a>My Projects</a>
+            </Link>
+          </p>
+          <p>
+            <Link href="https://github.com/zyrjanow">
+              <a target="blank">GitHub</a>
+            </Link>
+          </p>
         </div>
-        <div className={styles.HP__navbar_container_menu}>
+
+        <div className={styles.HP__navbar_container_switch}>
           <SwitchMode />
+        </div>
+
+        <div className={styles.HP__navbar_container_menu}>
           <Dropdown />
         </div>
       </div>
