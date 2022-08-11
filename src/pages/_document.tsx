@@ -1,13 +1,13 @@
 // <head>
-import { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 // import theme from '../lib/theme'
 
 const themeInitializerScript = `(function() {
-  ${setInitializerColorMode.toString()}
+  ${setInitialColorMode.toString()}
   setInitialColorMode()
 })()`
 
-function setInitializerColorMode() {
+function setInitialColorMode() {
   function getInitialColorMode() {
     const storedPreferenceMode = window.localStorage.getItem('theme')
     const hasStoredPreference = typeof storedPreferenceMode === 'string'
@@ -16,7 +16,7 @@ function setInitializerColorMode() {
       return storedPreferenceMode
     }
 
-    const preference = window.matchMedia('(prefers-color-scheme): dark')
+    const preference = window.matchMedia('(prefers-color-scheme: dark)')
     const hasMediaQueryPreference = typeof preference.matches === 'boolean'
 
     if (hasMediaQueryPreference) {
@@ -32,19 +32,21 @@ function setInitializerColorMode() {
   }
 }
 
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head />
-      <body>
-        <script
-          dangerouslySetInnerHtml={{
-            __html: themeInitializerScript
-          }}
-        ></script>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  )
+export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: themeInitializerScript
+            }}
+          ></script>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
 }

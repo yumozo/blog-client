@@ -1,12 +1,23 @@
 import { useEffect, useState } from 'react'
-import { Switch } from '@headlessui/react'
+
+SwitchMode.defaultProps = {
+}
 
 export default function SwitchMode() {
-  const [darkTheme, setDarkTheme] = useState(undefined)
+  const [darkTheme, setDarkTheme] = useState(undefined as undefined | boolean)
 
   const handleToggle = (e: any) => {
     setDarkTheme(e.target.checked)
   }
+
+  // useEffect(() => {
+  //   if (theme === 'dark') {
+  //     const switchElement = document.getElementById('switch-theme')
+  //     if (switchElement) {
+  //       switchElement.checked = true
+  //     }
+  //   }
+  // }, [])
 
   useEffect(() => {
     if (darkTheme !== undefined) {
@@ -17,6 +28,11 @@ export default function SwitchMode() {
         document.documentElement.removeAttribute('data-theme')
         window.localStorage.setItem('theme', 'light')
       }
+    } else {
+      const theme = window.localStorage.getItem('theme')
+      if (theme === 'dark') {
+        setDarkTheme(true)
+      }
     }
   }, [darkTheme])
 
@@ -26,7 +42,8 @@ export default function SwitchMode() {
         <input
           type="checkbox"
           onChange={handleToggle}
-          checked={darkTheme}
+          checked={darkTheme as undefined | boolean}
+          id='switch-theme'
           className="relative hidden h-[28px] shrink-0
             rounded-full border-2 border-transparent
             transition-colors duration-200 ease-in-out
