@@ -1,19 +1,17 @@
 import Link from 'next/link'
-import { Menu, Transition } from '@headlessui/react'
-import { AppProps } from 'next/app' // ???
-import styles from './nav.module.css'
 import Logo from './Logo'
 import Dropdown from './DropDown'
 import SwitchMode from './SwitchMode'
+import styles from './nav.module.css'
 
 export default function NavMenu({ path }: any) {
   return (
-    <nav className={styles.HP__navbar}>
-      <div className={styles.HP__navbar_container}>
-        <div className={styles.HP__navbar_container_logo}>
+    <nav className={styles.navbar}>
+      <div className={styles.navbar__container}>
+        <div className={styles.navbar__container_logo}>
           <Logo />
         </div>
-        <div className={styles.HP__navbar_container_links}>
+        <div className={styles.navbar__container_links}>
           <p>
             <Link href="/projects">
               <a>My Projects</a>
@@ -26,11 +24,11 @@ export default function NavMenu({ path }: any) {
           </p>
         </div>
 
-        <div className={styles.HP__navbar_container_switch}>
+        <div className={styles.navbar__container_switch}>
           <SwitchMode />
         </div>
 
-        <div className={styles.HP__navbar_container_menu}>
+        <div className={styles.navbar__container_menu}>
           <Dropdown />
         </div>
       </div>

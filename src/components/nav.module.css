@@ -1,4 +1,4 @@
-.HP__navbar {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,57 +6,57 @@
   padding: 1rem 2rem;
 }
 
-.HP__navbar_container {
-  @apply w-full max-w-xl;
+.navbar__container {
+  @apply w-full max-w-[750];
   margin-inline-start: auto;
   margin-inline-end: auto;
   display: inherit;
   justify-content: inherit;
 }
 
-.HP__navbar_container_logo {
+.navbar__container_logo {
   margin-right: 2rem;
 }
 
-.HP__navbar_container_logo img {
+.navbar__container_logo img {
   width: 32px;
   height: 32px;
 }
 
-.HP__navbar_container_links {
+.navbar__container_links {
   flex: 1;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.HP__navbar_container_links p,
-.HP__navbar_container_menu p {
+.navbar__container_links p,
+.navbar__container_menu p {
   color: var(--color-text);
   @apply font-medium text-lg mx-4;
   font-family: var(--font-family);
 }
 
-.HP__navbar_container_switch {
+.navbar__container_switch {
   @apply ml-auto;
 }
 
-.HP__navbar_container_menu {
+.navbar__container_menu {
   @apply ml-4 hidden relative;
 }
 
-.HP__navbar_container_menu_containter {
+.navbar__container_menu_containter {
   @apply flex flex-col justify-end items-end text-end p-8 absolute top-10 right-0 mt-4 border-r-4;
   min-width: 210px;
   background: var(--color-footer);
 }
 
 @media screen and (max-width: 800px) {
-  .HP__navbar_container_links {
+  .navbar__container_links {
     @apply hidden;
   }
 
-  .HP__navbar_container_menu {
+  .navbar__container_menu {
     @apply flex;
   }
 }
