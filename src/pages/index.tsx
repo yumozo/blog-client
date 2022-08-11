@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <Article>
       <div className="flex justify-around">
-        <div className="text-white max-w-xl">
+        <div className="max-w-xl">
           <h2
             className="py-4 text-center font-medium leading-tight text-4xl mt-0 mb-2"
           >

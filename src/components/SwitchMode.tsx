@@ -1,33 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Switch } from '@headlessui/react'
-import { SwitchHorizontalIcon } from '@heroicons/react/solid'
-
-function changeTheme(enabled: Boolean) {
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
-
-  if (enabled) {
-    // Whenever the user explicitly chooses light mode
-    localStorage.theme = 'light'
-  } else {
-    // Whenever the user explicitly chooses dark mode
-    localStorage.theme = 'dark'
-  }
-  // Whenever the user explicitly chooses to respect the OS preference
-  //localStorage.removeItem('theme')
-}
 
 export default function Example() {
-  const [enabled, setEnabled] = useState(false)
+  const [darkTheme, setDarkTheme] = useState(false)
+
+  const handleToggle = (e: any) => {
+    setDarkTheme(e.target.checked)
+  }
+  
+  useEffect(() => {
+    if (darkTheme !== undefined) {
+      if (darkTheme)
+        document.documentElement.setAttribute('data-theme', 'dark')
+    }
+  }, [darkTheme])
 
   return (
     <>
       <Switch
-        checked={enabled}
-        onChange={setEnabled}
+        onChange={setDarkTheme}
+        checked={darkTheme}
         className="
           relative inline-flex h-[28px] shrink-0
           cursor-pointer
@@ -38,7 +30,7 @@ export default function Example() {
         <span className="sr-only">Switch theme</span>
         <span
           aria-hidden="true"
-          className={`${enabled
+          className={`${darkTheme
             ? 'text-gray-800 bg-[#fcfcfc]'
             : 'text-white bg-[#121212]'
             }
@@ -46,7 +38,7 @@ export default function Example() {
             rounded-md shadow-lg ring-0
             transition duration-200 ease-in-out`}
         >
-          {enabled ? (
+          {darkTheme ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

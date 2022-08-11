@@ -32,7 +32,7 @@
 
 .HP__navbar_container_links p,
 .HP__navbar_container_menu p {
-  color: white;
+  color: var(--color-text);
   @apply font-medium text-lg mx-4;
   font-family: var(--font-family);
 }

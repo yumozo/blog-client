@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <Link href="/">
       <a>
-        <span className='text-white inline-flex w-xl justify-between items-center'>
+        <span className='inline-flex w-xl justify-between items-center'>
           <Image
             className="cursor-pointer"
             src="/assets/logo192.png"
