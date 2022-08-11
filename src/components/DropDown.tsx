@@ -8,9 +8,7 @@ function MenuItem({ children }: any) {
     <Menu.Item>
       {({ active }) => (
         <button
-          className={`${active
-            ? 'bg-white text-gray-900'
-            : 'text-white'}
+          className={`${active ? 'bg-white text-gray-900' : 'text-white'}
             group flex w-full items-center rounded-md px-2 py-2 text-sm`}
         >
           {children}
@@ -51,17 +49,11 @@ export default function Dropdown() {
           ring-1 ring-black ring-opacity-5 focus:outline-none"
         >
           <div className="px-1 py-1 ">
-            <MenuItem>
-              Home
-            </MenuItem>
-            <MenuItem>
-              Projects
-            </MenuItem>
+            <MenuItem>Home</MenuItem>
+            <MenuItem>Projects</MenuItem>
           </div>
           <div className="px-1 py-1">
-            <MenuItem>
-              GitHub
-            </MenuItem>
+            <MenuItem>GitHub</MenuItem>
           </div>
         </Menu.Items>
       </Transition>

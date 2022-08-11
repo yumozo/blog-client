@@ -13,7 +13,7 @@
   --color-subtext: #ff8a71;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-bg: #1c1d1f;
   --color-footer: #031b34;
   --color-blog: #042c54;
@@ -30,7 +30,7 @@
 
 body {
   background-color: var(--color-bg);
-  color: var(--color-text)
+  color: var(--color-text);
 }
 
 a {

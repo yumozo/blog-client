@@ -4,7 +4,6 @@ export default function Footer() {
       <span className="text-[#7a7a7a]">
         &copy; {new Date().getFullYear()} Jegor Zyrjanow. I have no rights lol.
       </span>
-
     </div>
   )
 }

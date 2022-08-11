@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <Link href="/">
       <a>
-        <span className='inline-flex w-xl justify-between items-center'>
+        <span className="inline-flex w-xl justify-between items-center">
           <Image
             className="cursor-pointer"
             src="/assets/logo192.png"
@@ -14,7 +14,7 @@ export default function Logo() {
             height={32}
             alt="logo"
           />
-          <p className='ml-2 text-lg'>Jegor Zyrjanow</p>
+          <p className="ml-2 text-lg">Jegor Zyrjanow</p>
         </span>
       </a>
     </Link>

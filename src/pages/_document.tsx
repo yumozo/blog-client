@@ -39,7 +39,7 @@ export default function Document() {
       <body>
         <script
           dangerouslySetInnerHtml={{
-            __html: themeInitializerScript,
+            __html: themeInitializerScript
           }}
         ></script>
         <Main />

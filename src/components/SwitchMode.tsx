@@ -1,38 +1,41 @@
 import { useEffect, useState } from 'react'
 import { Switch } from '@headlessui/react'
 
-export default function Example() {
-  const [darkTheme, setDarkTheme] = useState(false)
+export default function SwitchMode() {
+  const [darkTheme, setDarkTheme] = useState(undefined)
 
   const handleToggle = (e: any) => {
     setDarkTheme(e.target.checked)
   }
-  
+
   useEffect(() => {
     if (darkTheme !== undefined) {
-      if (darkTheme)
+      if (darkTheme) {
         document.documentElement.setAttribute('data-theme', 'dark')
+        window.localStorage.setItem('theme', 'dark')
+      } else {
+        document.documentElement.removeAttribute('data-theme')
+        window.localStorage.setItem('theme', 'light')
+      }
     }
   }, [darkTheme])
 
   return (
-    <>
-      <Switch
-        onChange={setDarkTheme}
-        checked={darkTheme}
-        className="
-          relative inline-flex h-[28px] shrink-0
-          cursor-pointer
-          rounded-full border-2 border-transparent
-          transition-colors duration-200 ease-in-out
-          focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75"
-      >
+    <form action="#">
+      <label className="switch flex h-auto cursor-pointer">
+        <input
+          type="checkbox"
+          onChange={handleToggle}
+          checked={darkTheme}
+          className="relative hidden h-[28px] shrink-0
+            rounded-full border-2 border-transparent
+            transition-colors duration-200 ease-in-out
+            focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75"
+        />
         <span className="sr-only">Switch theme</span>
         <span
           aria-hidden="true"
-          className={`${darkTheme
-            ? 'text-gray-800 bg-[#fcfcfc]'
-            : 'text-white bg-[#121212]'
+          className={`${darkTheme ? 'text-gray-800 bg-[#fcfcfc]' : 'text-white bg-[#121212]'
             }
             pointer-events-none inline-block h-[28px] w-[28px]
             rounded-md shadow-lg ring-0
@@ -70,7 +73,7 @@ export default function Example() {
             </svg>
           )}
         </span>
-      </Switch>
-    </>
+      </label>
+    </form>
   )
 }
