@@ -16,7 +16,7 @@ export default function Home() {
             </h2>
             <p>
               I'm a student from Siberia, interested in .NET &amp; web-dev
-              stuff. Wanna became a full-stack developer or expert in this
+              stuff. Wanna become a full-stack developer or expert in this
               domain whatever. Also learning CS and UX/UI design themes.
             </p>
           </div>
