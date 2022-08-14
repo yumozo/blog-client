@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import styled from '@emotion/styled'
 
 export default function Logo() {
   return (

@@ -40,14 +40,14 @@ export default function SwitchMode() {
   }, [darkTheme])
 
   return (
-    <div className=''>
+    <div className="">
       <form action="#">
         <label className="switch flex h-auto cursor-pointer">
           <input
             type="checkbox"
             onChange={handleToggle}
             checked={darkTheme as undefined | boolean}
-            id='switch-theme'
+            id="switch-theme"
             className="relative hidden h-[28px] shrink-0
             rounded-full border-2 border-transparent
             transition-colors duration-200 ease-in-out
@@ -56,14 +56,17 @@ export default function SwitchMode() {
           <span className="sr-only">Switch theme</span>
           <span
             aria-hidden="true"
-            className={`${darkTheme ? 'text-gray-800 bg-[#fcfcfc]' : 'text-white bg-[#121212]'
-              }
+            className={`${
+              darkTheme
+                ? 'text-gray-800 bg-[#fcfcfc]'
+                : 'text-white bg-[#121212]'
+            }
             pointer-events-none flex h-[36px] w-[28px]
             rounded-md shadow-lg ring-0
             transition duration-200 ease-in-out`}
           >
             {darkTheme ? (
-              <ThemeSvgIcon strokeWidth={2} fill={"none"}>
+              <ThemeSvgIcon strokeWidth={2} fill={'none'}>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -71,7 +74,7 @@ export default function SwitchMode() {
                 />
               </ThemeSvgIcon>
             ) : (
-              <ThemeSvgIcon strokeWidth={0} fill={"currentColor"}>
+              <ThemeSvgIcon strokeWidth={0} fill={'currentColor'}>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
