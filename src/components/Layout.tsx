@@ -1,4 +1,4 @@
-import Footer from '@components/Footer'
+import StyledFooter from '@components/Footer'
 import Head from 'next/head'
 import NavMenu from './NavMenu'
 
@@ -22,7 +22,7 @@ export default function Layout({ children, router }: any) {
 
       <div>{children}</div>
 
-      <Footer />
+      <StyledFooter />
     </main>
   )
 }

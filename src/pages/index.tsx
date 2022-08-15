@@ -1,18 +1,41 @@
 import Article from '@components/Article'
+import styled from 'styled-components' 
 import Link from 'next/link'
+
+type PropType = {
+  h2?: any
+}
+
+const H1 = styled.h2<PropType>`
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+`
+const H2 = styled(H1)`
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--primary)
+`
 
 export default function Home() {
   return (
     <Article>
       <div className="flex justify-around">
         <div className="max-w-xl">
-          <h2 className="py-4 text-center font-medium leading-tight text-4xl mt-0 mb-2">
+          <H1>
             Jegor Zyrjanow
-          </h2>
+          </H1>
           <div className="mt-4">
-            <h2 className="py-2 text-left font-medium leading-tight text-2xl mt-0 mb-2">
+            <H2>
               About
-            </h2>
+            </H2>
             <p>
               I'm a student from Siberia, interested in .NET &amp; web-dev
               stuff. Wanna become a full-stack developer or an expert in this
@@ -20,15 +43,15 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-4">
-            <h2 className="py-2 text-left font-medium leading-tight text-2xl mt-0 mb-2">
+            <H2>
               Work
-            </h2>
+            </H2>
             <p>So.. I didn't work yet &#x1F641;</p>
           </div>
           <div className="mt-4">
-            <h2 className="py-2 text-left font-medium leading-tight text-2xl mt-0 mb-2">
+            <H2>
               Contacts
-            </h2>
+            </H2>
             <p>
               <Link href="https://github.com/zyrjanow">
                 <a target="_blank">
@@ -36,7 +59,7 @@ export default function Home() {
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
-                      stroke-width="0"
+                      strokeWidth="0"
                       viewBox="0 0 512 512"
                       height="1em"
                       width="1em"

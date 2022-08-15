@@ -1,8 +1,8 @@
-// Layout could be here
-
 import type { AppProps } from 'next/app'
-import Layout from '@components/Layout'
 import App from 'next/app'
+import Layout from '@components/Layout'
+import { ThemeProvider, DefaultTheme } from 'styled-components'
+import GlobalStyle from '@components/styled/global'
 import '../../styles/global.css'
 
 if (
@@ -15,11 +15,24 @@ if (
 // ADDED ROUTER PROP
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    // <Fonts/>
-    <Layout router={router}>
-      <Component {...pageProps} key={router.route} />
-    </Layout>
+    <>
+      {/* <ThemeProvider theme={theme}> */}
+      <GlobalStyle />
+      <Layout router={router}>
+        <Component {...pageProps} key={router.route} />
+      </Layout>
+      {/* </ThemeProvider> */}
+    </>
   )
+}
+
+const theme: DefaultTheme = {
+  // TEST FOR A WHILE
+  colors: {
+    primary: '#fff',
+    
+    secondary: '#fff'
+  }
 }
 
 // Only uncomment this method if you have blocking data requirements for

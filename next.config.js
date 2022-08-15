@@ -1,8 +1,10 @@
-// @ts-check
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  reactStrictMode: true
+  reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
   // typescript: {
   //   ignoreBuildErrors: true,
   // },

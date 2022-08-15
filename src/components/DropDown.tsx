@@ -2,13 +2,57 @@ import Link from 'next/link'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { MenuIcon } from '@heroicons/react/solid'
+import styled from 'styled-components'
 
-function MenuItem({ children }: any) {
+const Button = styled.button`
+  color: var(--color-text);
+  &:hover {
+    color: var(--color-text);
+  }
+`
+
+const StyledMenu = styled(Menu)`
+  position: relative;
+  display: inline-block;
+  text-align: left;
+`
+
+const StyledMenuItems = styled(Menu.Items)`
+  position: absolute;
+  right: 0;
+  margin-top: 0.5rem;
+  width: 6rem;
+  transform-origin: top right;
+  border-radius: 0.375rem;
+  background-color: var(--color-surface);
+`
+  {/* focus:outline-none" */}
+
+const StyledMenuButton = styled(Menu.Button)`
+  padding: 0.5rem;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  background-color: #00000033;
+  color: white;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.375rem;
+  &:hover {
+    background-color: #0000004d;
+  }
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+`
+
+function MenuItem({ children, href }: any) {
   return (
     <Menu.Item>
       {({ active }) => (
         <button
-          className={`${active ? 'bg-white text-gray-900' : 'text-white'}
+          className={`${active ? 'bg-[#ffffff33]' : ''}
             group flex w-full items-center rounded-md px-2 py-2 text-sm`}
         >
           {children}
@@ -22,16 +66,21 @@ export default function Dropdown() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button
-          className="inline-flex w-full justify-center rounded-md
-            bg-black bg-opacity-20 p-2
-            text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          <MenuIcon
-            className="h-5 w-5 text-gray-200 hover:text-white"
-            aria-hidden="true"
-          />
-        </Menu.Button>
+        <StyledMenuButton>
+          <svg
+            className="h-5 w-5 text-gray-200"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </StyledMenuButton>
       </div>
       <Transition
         as={Fragment}
@@ -42,12 +91,7 @@ export default function Dropdown() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items
-          className="absolute right-0 mt-2 w-24
-          origin-top-right divide-y divide-gray-200 rounded-md
-          bg-[#121212] shadow-lg
-          ring-1 ring-black ring-opacity-5 focus:outline-none"
-        >
+        <StyledMenuItems>
           <div className="px-1 py-1 ">
             <MenuItem>Home</MenuItem>
             <MenuItem>Projects</MenuItem>
@@ -55,7 +99,7 @@ export default function Dropdown() {
           <div className="px-1 py-1">
             <MenuItem>GitHub</MenuItem>
           </div>
-        </Menu.Items>
+        </StyledMenuItems>
       </Transition>
     </Menu>
   )

@@ -3,10 +3,19 @@ import Logo from './Logo'
 import Dropdown from './DropDown'
 import SwitchMode from './SwitchMode'
 import styles from './nav.module.css'
+import styled from 'styled-components'
+// import { NavBar } from './styled/nav.styled'
+
+const NavBar = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+`
 
 export default function NavMenu({ path }: any) {
   return (
-    <nav className={styles.navbar}>
+    <NavBar>
       <div className={styles.navbar__container}>
         <div className={styles.navbar__container_logo}>
           <Logo />
@@ -32,7 +41,7 @@ export default function NavMenu({ path }: any) {
           <Dropdown />
         </div>
       </div>
-    </nav>
+    </NavBar>
   )
 }
 

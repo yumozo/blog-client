@@ -1,13 +1,20 @@
-import styles from './footer.module.css'
+import styled from 'styled-components'
+
+const StyledFooter = styled.footer`
+  text-align: center;
+  position: relative;
+  height: 180px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  color: var(--color-subtext);
+`
 
 export default function Footer() {
   return (
-    <div className={styles.HP__footer}>
-      <div className="flex w-full justify-center">
-        <span className="text-[#7a7a7a]">
-          &copy; {new Date().getFullYear()} Jegor Zyrjanow. All Rights Reserved.
-        </span>
-      </div>
-    </div>
+    <StyledFooter>
+      <p>
+        &copy; {new Date().getFullYear()} Jegor Zyrjanow. All Rights Reserved.
+      </p>
+    </StyledFooter>
   )
 }
