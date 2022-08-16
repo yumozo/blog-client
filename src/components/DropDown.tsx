@@ -26,7 +26,6 @@ const StyledMenuItems = styled(Menu.Items)`
   border-radius: 0.375rem;
   background-color: var(--color-surface);
 `
-  {/* focus:outline-none" */}
 
 const StyledMenuButton = styled(Menu.Button)`
   padding: 0.5rem;
@@ -38,12 +37,20 @@ const StyledMenuButton = styled(Menu.Button)`
   font-size: 0.875rem;
   line-height: 1.25rem;
   border-radius: 0.375rem;
+
   &:hover {
     background-color: #0000004d;
   }
+
   &:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
+  }
+
+  svg {
+    height: 1.25rem;
+    width: 1.25rem;
+    color: #e5e7eb
   }
 `
 
@@ -68,7 +75,6 @@ export default function Dropdown() {
       <div>
         <StyledMenuButton>
           <svg
-            className="h-5 w-5 text-gray-200"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

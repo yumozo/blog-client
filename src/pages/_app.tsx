@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import App from 'next/app'
 import Layout from '@components/Layout'
 import { ThemeProvider, DefaultTheme } from 'styled-components'
+import Fonts from '@components/fonts'
 import GlobalStyle from '@components/styled/global'
 import '../../styles/global.css'
 
@@ -17,6 +18,7 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       {/* <ThemeProvider theme={theme}> */}
+      <Fonts />
       <GlobalStyle />
       <Layout router={router}>
         <Component {...pageProps} key={router.route} />
@@ -30,7 +32,7 @@ const theme: DefaultTheme = {
   // TEST FOR A WHILE
   colors: {
     primary: '#fff',
-    
+
     secondary: '#fff'
   }
 }

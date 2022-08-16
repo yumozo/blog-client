@@ -1,41 +1,40 @@
 import Article from '@components/Article'
-import styled from 'styled-components' 
+import styled from 'styled-components'
 import Link from 'next/link'
+import { MaxWidthWrapper } from '@components/styled/maxWidthWrapper'
+import BlockDiv from '@components/styled/blockDiv'
 
 type PropType = {
   h2?: any
 }
 
 const H1 = styled.h2<PropType>`
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 0.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   text-align: center;
   font-size: 2.25rem;
   line-height: 2.5rem;
 `
 const H2 = styled(H1)`
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  margin-top: 32px;
+  margin-bottom: 16px;
   text-align: left;
   font-size: 1.5rem;
   line-height: 2rem;
-  color: var(--primary)
+  color: var(--primary);
 `
 
 export default function Home() {
   return (
     <Article>
-      <div className="flex justify-around">
-        <div className="max-w-xl">
-          <H1>
-            Jegor Zyrjanow
-          </H1>
+      <MaxWidthWrapper>
+        <BlockDiv />
+        <div className="flex justify-around flex-col">
+          <H1>Jegor Zyrjanow</H1>
+          <BlockDiv />
           <div className="mt-4">
-            <H2>
-              About
-            </H2>
+            <H2>About</H2>
             <p>
               I'm a student from Siberia, interested in .NET &amp; web-dev
               stuff. Wanna become a full-stack developer or an expert in this
@@ -43,15 +42,11 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-4">
-            <H2>
-              Work
-            </H2>
+            <H2>Work</H2>
             <p>So.. I didn't work yet &#x1F641;</p>
           </div>
           <div className="mt-4">
-            <H2>
-              Contacts
-            </H2>
+            <H2>Contacts</H2>
             <p>
               <Link href="https://github.com/zyrjanow">
                 <a target="_blank">
@@ -74,7 +69,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </MaxWidthWrapper>
     </Article>
   )
 }
