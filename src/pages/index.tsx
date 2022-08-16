@@ -3,27 +3,8 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { MaxWidthWrapper } from '@components/styled/maxWidthWrapper'
 import BlockDiv from '@components/styled/blockDiv'
+import { H1, H2 } from '@components/styled/heading.styled'
 
-type PropType = {
-  h2?: any
-}
-
-const H1 = styled.h2<PropType>`
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-`
-const H2 = styled(H1)`
-  margin-top: 32px;
-  margin-bottom: 16px;
-  text-align: left;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  color: var(--primary);
-`
 
 export default function Home() {
   return (

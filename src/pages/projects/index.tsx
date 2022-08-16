@@ -1,12 +1,26 @@
+import Article from '@components/Article'
+import BlockDiv from '@components/styled/blockDiv'
+import { H1, H2 } from '@components/styled/heading.styled'
+import { MaxWidthWrapper } from '@components/styled/maxWidthWrapper'
 import React from 'react'
+import styled from 'styled-components'
 
 export default function Projects() {
   return (
-    <div className="mt-4">
-      <h2 className="py-4 text-left font-medium leading-tight text-2xl mt-0 mb-2">
-        Projects
-      </h2>
-      <p>Course Work &#x2013; Image Gallery</p>
-    </div>
+    <Article>
+      <MaxWidthWrapper>
+        <BlockDiv />
+        <div className="flex justify-around flex-col">
+          <H1>My Projects</H1>
+          <BlockDiv />
+          <div className="mt-4">
+            <H2>
+              Projects
+            </H2>
+            <p>Course Work &#x2013; Image Gallery</p>
+          </div>
+        </div>
+      </MaxWidthWrapper>
+    </Article>
   )
 }
