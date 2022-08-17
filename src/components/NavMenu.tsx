@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Logo from './Logo'
-import Dropdown from './DropDown'
+import Dropdown from './dropdown'
 import SwitchMode from './SwitchMode'
 import styled from 'styled-components'
 import { MaxWidthWrapper } from './styled/maxWidthWrapper'

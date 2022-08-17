@@ -1,10 +1,8 @@
 import Article from '@components/Article'
-import styled from 'styled-components'
 import Link from 'next/link'
 import { MaxWidthWrapper } from '@components/styled/maxWidthWrapper'
 import BlockDiv from '@components/styled/blockDiv'
 import { H1, H2 } from '@components/styled/heading.styled'
-
 
 export default function Home() {
   return (
@@ -14,19 +12,14 @@ export default function Home() {
         <div className="flex justify-around flex-col">
           <H1>Jegor Zyrjanow</H1>
           <BlockDiv />
-          <div className="mt-4">
             <H2>About</H2>
             <p>
               I'm a student from Siberia, interested in .NET &amp; web-dev
               stuff. Wanna become a full-stack developer or an expert in this
               domain whatever. Also learning CS and UX/UI design themes.
             </p>
-          </div>
-          <div className="mt-4">
             <H2>Work</H2>
             <p>So.. I didn't work yet &#x1F641;</p>
-          </div>
-          <div className="mt-4">
             <H2>Contacts</H2>
             <p>
               <Link href="https://github.com/zyrjanow">
@@ -48,7 +41,6 @@ export default function Home() {
                 </a>
               </Link>
             </p>
-          </div>
         </div>
       </MaxWidthWrapper>
     </Article>
