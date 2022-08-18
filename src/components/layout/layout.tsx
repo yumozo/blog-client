@@ -1,6 +1,7 @@
-import StyledFooter from '@components/Footer'
+import StyledFooter from '@components/footer'
 import Head from 'next/head'
-import NavMenu from './NavMenu'
+import Image from 'next/image'
+import NavMenu from '@components/nav-menu'
 
 export default function Layout({ children, router }: any) {
   return (

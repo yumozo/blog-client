@@ -1,6 +1,13 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { MaxWidthWrapper } from './styled/maxWidthWrapper'
+import { MaxWidthWrapper } from '../styled/maxWidthWrapper'
+import { createGlobalStyle } from 'styled-components'
+
+const ArticleStyle = createGlobalStyle`
+  p {
+    margin-bottom: 1rem;
+  }
+`
 
 export default function Article({ children, title }: any) {
   const pageTitle = `${title}`
@@ -13,6 +20,7 @@ export default function Article({ children, title }: any) {
         </Head>
       )}
 
+      {/* <ArticleStyle /> */}
       {children}
     </>
   )

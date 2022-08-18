@@ -11,7 +11,7 @@ const StyledFooter = styled.footer`
   -moz-box-pack: justify;
   justify-content: space-between;
   align-items: center;
-  
+
   p {
     margin-top: 40px;
   }

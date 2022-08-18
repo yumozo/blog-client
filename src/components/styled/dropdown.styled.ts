@@ -1,24 +1,11 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 type PropType = {
   visibility?: any
 }
 
-export const Button = styled.button`
-  color: var(--color-text);
-  &:hover {
-    color: var(--color-text);
-  }
-`
-
-export const StyledMenu = styled.div`
-  position: relative;
-  display: inline-block;
-  text-align: left;
-`
-
 export const StyledMenuItems = styled.div<PropType>`
-  visibility: ${props => props.visibility ? 'hidden' : 'visible'};
+  visibility: ${props => (props.visibility ? 'hidden' : 'visible')};
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -28,20 +15,22 @@ export const StyledMenuItems = styled.div<PropType>`
   background-color: var(--color-surface);
 
   div {
-    margin: 0.7rem 1.4rem ;
+    margin: 0.7rem 1.4rem;
     font-weight: 600;
     font-size: 0.875rem;
-    line-height: 1.25rem
+    line-height: 1.25rem;
   }
 `
 
 export const StyledMenuButton = styled.button`
-  padding: 0.5rem;
-  width: 100%;
+  padding: 8px;
+  margin-left: 12px;
+  height: 36px;
+  width: 36px;
   display: inline-flex;
   justify-content: center;
-  background-color: #00000033;
-  color: white;
+  background-color: #0000004d;
+  color: black;
   font-size: 0.875rem;
   line-height: 1.25rem;
   border-radius: 0.375rem;
@@ -58,6 +47,6 @@ export const StyledMenuButton = styled.button`
   svg {
     height: 1.25rem;
     width: 1.25rem;
-    color: #e5e7eb
+    color: #e5e7eb;
   }
 `

@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import App from 'next/app'
-import Layout from '@components/Layout'
+import Layout from '@components/layout/layout'
 import { ThemeProvider, DefaultTheme } from 'styled-components'
 import Fonts from '@components/fonts'
 import GlobalStyle from '@components/styled/global'

@@ -1,34 +1,38 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { StyledMenuButton, StyledMenuItems } from './styled/dropdown.styled'
 
 function MenuLink({ children, href, target }: any) {
   return (
     <div>
       <Link href={href}>
-        <a target={target}>
-          {children}
-        </a>
+        <a target={target}>{children}</a>
       </Link>
     </div>
   )
 }
 
+const NavWrapper = styled.div`
+  position: relative;
+  display: none;
+`
+
 export default function Dropdown() {
-  const [state, setState] = useState(true);
+  const [state, setState] = useState(true)
 
   const handleToggle = () => {
     setState(!state)
   }
 
   return (
-    <div className="relative inline-block text-left">
+    <div>
       <StyledMenuButton>
         <svg
           onClick={handleToggle}
           fill="none"
           viewBox="0 0 24 24"
-          stroke="currentColor"
+          stroke="white"
           strokeWidth={2}
         >
           <path
@@ -39,9 +43,14 @@ export default function Dropdown() {
         </svg>
       </StyledMenuButton>
       <StyledMenuItems visibility={state}>
-        <MenuLink href='/'>Home</MenuLink>
-        <MenuLink href='/projects'>Projects</MenuLink>
-        <MenuLink href='https://github.com/zyrjanow/my-homepage' target='_blank'>GitHub</MenuLink>
+        <MenuLink href="/">Home</MenuLink>
+        <MenuLink href="/projects">Projects</MenuLink>
+        <MenuLink
+          href="https://github.com/zyrjanow/my-homepage"
+          target="_blank"
+        >
+          GitHub
+        </MenuLink>
       </StyledMenuItems>
     </div>
   )

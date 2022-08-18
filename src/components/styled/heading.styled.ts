@@ -13,8 +13,9 @@ export const H1 = styled.h2<PropType>`
   line-height: 2.5rem;
 `
 export const H2 = styled(H1)`
-  margin-top: 32px;
-  margin-bottom: 16px;
+
+  margin-top: 42px;
+  margin-bottom: 26px;
   text-align: left;
   font-size: 1.5rem;
   line-height: 2rem;

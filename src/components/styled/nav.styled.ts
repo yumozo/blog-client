@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const NavBar = styled.nav`
   display: flex;
+  backdrop-filter: blur(10px);
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0;
+  padding: 14px 16px;
 
   .container {
     max-width: 750;
@@ -13,6 +14,10 @@ export const NavBar = styled.nav`
     margin-inline-end: auto;
     display: inherit;
     justify-content: inherit;
+
+    & > * {
+      max-height: 36px;
+    }
   }
 
   .container_logo {
@@ -24,13 +29,6 @@ export const NavBar = styled.nav`
     height: 32px;
   }
 
-  .container_links {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
   .container_links p,
   .container_menu p {
     color: var(--color-text);
@@ -39,16 +37,6 @@ export const NavBar = styled.nav`
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 500;
-  }
-
-  .container_switch {
-    margin-left: auto;
-  }
-
-  .container_menu {
-    position: relative;
-    display: none;
-    margin-left: 1rem;
   }
 
   .container_menu_containter {

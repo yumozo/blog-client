@@ -1,21 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const ThemeSvgIcon = ({ strokeWidth, fill, children }: any) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-6 w-6 m-auto"
-      fill={fill}
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-    >
-      {children}
-    </svg>
-  )
-}
-
-export default function SwitchMode() {
+export default function ThemeSwitch() {
   const [darkTheme, setDarkTheme] = useState(undefined as undefined | boolean)
 
   const handleToggle = (e: any) => {
@@ -40,7 +25,7 @@ export default function SwitchMode() {
   }, [darkTheme])
 
   return (
-    <div className="">
+    <div>
       <form action="#">
         <label className="switch flex h-auto cursor-pointer">
           <input
@@ -85,5 +70,20 @@ export default function SwitchMode() {
         </label>
       </form>
     </div>
+  )
+}
+
+const ThemeSvgIcon = ({ strokeWidth, fill, children }: any) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-6 w-6 m-auto"
+      fill={fill}
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+    >
+      {children}
+    </svg>
   )
 }

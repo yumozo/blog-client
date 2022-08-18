@@ -18,10 +18,12 @@ const GlobalStyle = createGlobalStyle`
     --color-surface: #3E3F40;
     --color-subtext: #6a6a6a;
   }
+
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
   }
+
   a {
     color: unset;
     text-decoration: none;
