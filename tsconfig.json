@@ -31,6 +31,9 @@
     "paths": {
       "@components/*": [
         "components/*"
+      ],
+      "@constants/*": [
+        "constants/*"
       ]
     },
     "incremental": true

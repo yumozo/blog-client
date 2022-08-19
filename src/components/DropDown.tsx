@@ -18,7 +18,7 @@ const NavWrapper = styled.div`
   display: none;
 `
 
-export default function Dropdown() {
+export default function Dropdown(props: any) {
   const [state, setState] = useState(true)
 
   const handleToggle = () => {

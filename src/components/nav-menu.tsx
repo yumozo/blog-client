@@ -1,34 +1,27 @@
 import Link from 'next/link'
-import Logo from './logo'
+import Image from 'next/image'
 import Dropdown from './dropdown'
 import ThemeSwitch from './theme-switch'
 import styled from 'styled-components'
 
 const NavBar = styled.nav`
   display: flex;
+  width: 100%;
+  max-width: 1000px;
+
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+
   backdrop-filter: blur(10px);
-  justify-content: space-between;
   align-items: center;
   padding: 14px 16px;
 
-
-  .container_logo {
-    margin-right: 2rem;
-  }
-
-  .container_logo img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .container_links p,
-  .container_menu p {
-    color: var(--color-text);
-    margin-left: 1rem;
-    margin-right: 1rem;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    font-weight: 500;
+  & > * {
+    max-height: 36px;
   }
 
   .container_menu_containter {
@@ -47,27 +40,25 @@ const NavBar = styled.nav`
     background: var(--color-footer);
   }
 
+  .menu {
+    position: relative;
+    display: none;
+    margin-left: 1rem;
+  }
+
+  @media (max-width: 563px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   @media screen and (max-width: 800px) {
-    .container_links {
+    .links-wrapper {
       display: none;
     }
 
-    .container_menu {
+    .dropdown-wrapper {
       display: flex;
     }
-  }
-`
-
-const Container = styled.div`
-  max-width: 750;
-  width: 100%;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-  display: inherit;
-  justify-content: inherit;
-
-  & > * {
-    max-height: 36px;
   }
 `
 
@@ -84,62 +75,57 @@ const LinksWrapper = styled.div`
   align-items: center;
 `
 
-export default function NavMenu({ path }: any) {
+const LogoWrapper = styled.span`
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    margin-left: 4px;
+    font-weight: 600;
+    color: var(--secondary);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+`
+
+export default function NavMenu() {
   return (
     <StyledNavMenu>
       <NavBar>
-        <Container>
+        <Link href="/">
+          <a>
+            <LogoWrapper>
+              <Image
+                className="cursor-pointer"
+                src="/logo192.png"
+                width={32}
+                height={32}
+                alt="logo"
+              />
+              <p>Zyrjanow</p>
+            </LogoWrapper>
+          </a>
+        </Link>
 
-          <Logo />
+        <LinksWrapper className="links-wrapper">
+          <p>
+            <Link href="/projects">
+              <a>My Projects</a>
+            </Link>
+          </p>
+          <p>
+            <Link href="https://github.com/zyrjanow">
+              <a target="blank">GitHub</a>
+            </Link>
+          </p>
+        </LinksWrapper>
 
-          <LinksWrapper>
-            <p>
-              <Link href="/projects">
-                <a>My Projects</a>
-              </Link>
-            </p>
-            <p>
-              <Link href="https://github.com/zyrjanow">
-                <a target="blank">GitHub</a>
-              </Link>
-            </p>
-          </LinksWrapper>
-
-          <ThemeSwitch />
+        <ThemeSwitch />
+        <div className="dropdown-wrapper">
           <Dropdown />
-
-        </Container>
+        </div>
       </NavBar>
     </StyledNavMenu>
   )
 }
-
-// export default function NavMenu() {
-//   return (
-//     <nav className="flex flex-wrap
-//       items-center justify-between
-//       py-4"
-//     >
-
-//       <Link to='/'
-//         className="mr-8"
-//       >
-//         Logo
-//       </Link>
-
-//       <div className='pr-8'>
-//         <Link to='projs'>
-//           projects
-//         </Link>
-//         <a href='https://github.com/zyrjanow' target="_blank">
-//           source
-//         </a>
-//       </div>
-
-//       <div className="ml-8">
-//         <span>dark/light mode</span>
-//       </div>
-
-//     </nav>
-//   )
-// }

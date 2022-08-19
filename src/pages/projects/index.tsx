@@ -1,6 +1,6 @@
 import Article from '@components/layout/article'
 import BlockDiv from '@components/styled/blockDiv'
-import { H1, H2 } from '@components/styled/heading.styled'
+import { H1, H2 } from '@components/heading'
 import { MaxWidthWrapper } from '@components/styled/maxWidthWrapper'
 import React from 'react'
 import styled from 'styled-components'
