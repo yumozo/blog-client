@@ -1,7 +1,7 @@
-This proj is just to practice React & TS.
+This proj is just for practice.
 
-## Tools
+## I use
 
 - Next.js
-- Tailwind
-- Headless UI
+
+Start adding MDX for my blog (that I hope I'll start)
