@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { MaxWidthWrapper } from '@components/styled/maxWidthWrapper'
 import BlockDiv from '@components/styled/blockDiv'
-import { H1, H2 } from '@components/heading'
 import styled from 'styled-components'
 import Paragraph from '@components/paragraph'
 
@@ -47,10 +46,11 @@ export default function Home() {
           <H1>About</H1>
           <H2>Hey!👋</H2>
           <Paragraph>
-            I'm Jegor Zyrjanow, a not&#8209;yet&#8209;Full&#8209;stack
-            developer. Primarily interested in .NET &amp; web&#8209;dev stuff.
-            Wanna become a full&#8209;stack developer or an expert in that
-            domain whatever. Also learning CS and UX/UI.
+            I'm Jegor Zyrjanow, a Full&#8209;stack not&#8209;yet
+            &#8209;developer. Primarily interested in .NET &amp;
+            web&#8209;dev stuff. Wanna become a useful one
+            developer or an expert in web dev domain whatever.
+            Also learning CS and UX/UI.
           </Paragraph>
           <Paragraph>
             I Love to search for new information, concepts and other interesting
