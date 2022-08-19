@@ -50,7 +50,7 @@ export default function Heading(props: any) {
   return (
     <Self {...delegated} ref={node => (selfNode = node)}>
       <Anchor name={anchorId} id={anchorId} href={`#${anchorId}`}>
-        <IconBase size="0.75em" icon={linkIcon} />
+        {/* <IconBase size="0.75em" icon={linkIcon} /> */}
       </Anchor>
     </Self>
   )
