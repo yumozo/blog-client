@@ -41,7 +41,7 @@ export default function Heading(props: any) {
     }
   }, [])
 
-  selfNode: HTMLElement
+  let selfNode: HTMLElement | null
 
   const Self = [H1, H2, H3, H4, H5, H6][size - 1];
 
@@ -49,9 +49,9 @@ export default function Heading(props: any) {
 
   return (
     <Self {...delegated} ref={node => (selfNode = node)}>
-      <Anchor name={anchorId} id={anchorId} href={`#${anchorId}`}>
+      {/* <A name={anchorId} id={anchorId} href={`#${anchorId}`}> */}
         {/* <IconBase size="0.75em" icon={linkIcon} /> */}
-      </Anchor>
+      {/* </A> */}
     </Self>
   )
 }
@@ -94,7 +94,7 @@ const H6 = styled(Base)`
   font-size: 16px;
 `;
 
-const Anchor = styled.a`
+const A = styled.a`
   display: none;
   @media ${BREAKPOINTS.mdMin} {
     display: block;

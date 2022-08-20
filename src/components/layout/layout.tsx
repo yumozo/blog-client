@@ -19,7 +19,7 @@ export default function Layout({ children, router }: any) {
         <title>Homepage</title>
       </Head>
 
-      <NavMenu path={router.asPath} />
+      <NavMenu />
 
       <div>{children}</div>
 

@@ -3,7 +3,7 @@ import App from 'next/app'
 import Layout from '@components/layout/layout'
 import { ThemeProvider, DefaultTheme } from 'styled-components'
 import Fonts from '@components/fonts'
-import GlobalStyle from '@components/styled/global'
+import GlobalStyle from '@components/styles/global'
 import '../../styles/global.css'
 
 if (

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { BREAKPOINTS } from '@constants/constants'
 
 export default styled.p`
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   margin-bottom: 2rem;
 
   @media ${BREAKPOINTS.sm} {

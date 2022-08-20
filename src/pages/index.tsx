@@ -1,10 +1,11 @@
-import Article from '@components/layout/article'
+import styled from 'styled-components'
 import Link from 'next/link'
 import Image from 'next/image'
+import Article from '@components/layout/article'
 import { MaxWidthWrapper } from '@components/styled/maxWidthWrapper'
 import BlockDiv from '@components/styled/blockDiv'
-import styled from 'styled-components'
 import Paragraph from '@components/paragraph'
+import Heading from '@components/heading'
 
 function LinkWithLogo({ children, href, target }: any) {
   return (
@@ -43,8 +44,8 @@ export default function Home() {
         <BlockDiv />
         <BlockDiv />
         <div className="flex justify-around flex-col">
-          <H1>About</H1>
-          <H2>Hey!👋</H2>
+          <h1>About</h1>
+          <h2>Hey!👋</h2>
           <Paragraph>
             I'm Jegor Zyrjanow, a Full&#8209;stack not&#8209;yet
             &#8209;developer. Primarily interested in .NET &amp;
@@ -56,11 +57,15 @@ export default function Home() {
             I Love to search for new information, concepts and other interesting
             things to share with people around.
           </Paragraph>
-          <H2>Work</H2>
+          <h2>Interests</h2>
+          <Paragraph>
+            Typography, reading, literature collectioning.
+          </Paragraph>
+          <h2>Work</h2>
           <Paragraph>
             So.. I didn't work yet &#x1F641;
           </Paragraph>
-          <H2>Links</H2>
+          <h2>Links</h2>
           <Paragraph>
             <StyledLink href="https://github.com/zyrjanow" target="_blank">
               Github

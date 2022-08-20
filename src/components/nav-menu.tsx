@@ -16,7 +16,7 @@ const NavBar = styled.nav`
   margin-inline-start: auto;
   margin-inline-end: auto;
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   align-items: center;
   padding: 14px 16px;
 
@@ -37,7 +37,6 @@ const NavBar = styled.nav`
     align-items: flex-end;
     justify-content: flex-end;
     min-width: 210px;
-    background: var(--color-footer);
   }
 
   .menu {

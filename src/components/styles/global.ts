@@ -1,7 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  * { box-sizing: border-box; padding: 0; margin: 0; scroll-behavior: smooth; }
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+  }
   html{
     --color-text: #000;
     --primary: #554994;
@@ -22,6 +27,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
+
+    // for testing layout
+    /* div {
+      border: 1px solid #99499440;
+    }
+    p, h1, h2, h3 {
+      border: 1px solid #79993440;
+    } */
+    // --
   }
 
   a {
@@ -69,6 +83,23 @@ const GlobalStyle = createGlobalStyle`
     .section__padding {
       margin: 4rem 2rem;
     }
+  }
+
+  // replace styles below later
+  h1 {
+    align-self: center;
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2em;
+  }
+
+  h2 {
+    color: var(--secondary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1.75em;
+    margin-bottom: .75em;
   }
 `
 
