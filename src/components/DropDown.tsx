@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
-import { StyledMenuButton, StyledMenuItems } from './styled/dropdown.styled'
+import { StyledMenuButton, StyledMenuItems } from '@styles/dropdown'
 
 function MenuLink({ children, href, target }: any) {
   return (

@@ -19,5 +19,5 @@ export const BREAKPOINTS = {
   mdMin: `(min-width: ${BREAKPOINT_SIZES.md + 1}px)`,
   lgMin: `(min-width: ${BREAKPOINT_SIZES.lg + 1}px)`,
   xlMin: `(min-width: ${BREAKPOINT_SIZES.xl + 1}px)`,
-  desktop: `(min-width: ${BREAKPOINT_SIZES.sm + 1}px)`,
-};
+  desktop: `(min-width: ${BREAKPOINT_SIZES.sm + 1}px)`
+}

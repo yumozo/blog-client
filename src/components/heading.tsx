@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import { BREAKPOINTS } from '@constants/constants'
 
 function slugify(str = '') {
-  str.toLowerCase()
+  str
+    .toLowerCase()
     .replace(/\s/g, '-')
     .replace(/[^a-zA-Z0-9-]/g, '')
 }
@@ -28,8 +29,9 @@ export default function Heading(props: any) {
 
   useEffect(() => {
     const anchorId = getDerivedAnchorId()
-    const numOfAnchorsWithThisId = document.querySelectorAll(`#${anchorId}`)
-      .length
+    const numOfAnchorsWithThisId = document.querySelectorAll(
+      `#${anchorId}`
+    ).length
 
     if (numOfAnchorsWithThisId > 1) {
       console.error(
@@ -43,14 +45,14 @@ export default function Heading(props: any) {
 
   let selfNode: HTMLElement | null
 
-  const Self = [H1, H2, H3, H4, H5, H6][size - 1];
+  const Self = [H1, H2, H3, H4, H5, H6][size - 1]
 
-  const anchorId = getDerivedAnchorId();
+  const anchorId = getDerivedAnchorId()
 
   return (
     <Self {...delegated} ref={node => (selfNode = node)}>
       {/* <A name={anchorId} id={anchorId} href={`#${anchorId}`}> */}
-        {/* <IconBase size="0.75em" icon={linkIcon} /> */}
+      {/* <IconBase size="0.75em" icon={linkIcon} /> */}
       {/* </A> */}
     </Self>
   )
@@ -63,36 +65,36 @@ const Base = styled.div`
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   margin-bottom: 8px;
-`;
+`
 
 const H1 = styled(Base)`
   font-size: 72px;
   letter-spacing: -2px;
-`;
+`
 
 const H2 = styled(Base)`
   font-size: 48px;
   letter-spacing: -0.5px;
   padding-top: 65px;
-`;
+`
 
 const H3 = styled(Base)`
   font-size: 40px;
   padding-top: 65px;
-`;
+`
 
 const H4 = styled(Base)`
   font-size: 32px;
   padding-top: 30px;
-`;
+`
 
 const H5 = styled(Base)`
   font-size: 28px;
-`;
+`
 
 const H6 = styled(Base)`
   font-size: 16px;
-`;
+`
 
 const A = styled.a`
   display: none;
@@ -110,4 +112,4 @@ const A = styled.a`
       opacity: 0.75;
     }
   }
-`;
+`

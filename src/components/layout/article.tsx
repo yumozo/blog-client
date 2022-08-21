@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { MaxWidthWrapper } from '../styled/maxWidthWrapper'
+import { MaxWidthWrapper } from '@styles/maxWidthWrapper'
 import { createGlobalStyle } from 'styled-components'
 
 const ArticleStyle = createGlobalStyle`

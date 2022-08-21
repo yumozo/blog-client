@@ -39,10 +39,14 @@ const NavBar = styled.nav`
     min-width: 210px;
   }
 
-  .menu {
+  .links-wrapper {
     position: relative;
-    display: none;
+    display: flex;
     margin-left: 1rem;
+  }
+
+  .dropdown-wrapper {
+    display: none;
   }
 
   @media (max-width: 563px) {
@@ -88,6 +92,10 @@ const LogoWrapper = styled.span`
   }
 `
 
+const StyledSwitch = styled(ThemeSwitch)`
+  margin-left: auto;
+`
+
 export default function NavMenu() {
   return (
     <StyledNavMenu>
@@ -120,10 +128,12 @@ export default function NavMenu() {
           </p>
         </LinksWrapper>
 
-        <ThemeSwitch />
+        <StyledSwitch />
+
         <div className="dropdown-wrapper">
           <Dropdown />
         </div>
+
       </NavBar>
     </StyledNavMenu>
   )

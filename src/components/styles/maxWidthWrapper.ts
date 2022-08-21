@@ -6,8 +6,9 @@ export const MaxWidthWrapper = styled.div`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding: 2rem;
+  padding-bottom: 0;
+
   @media (max-width: 563px) {
     padding-left: 16px;
     padding-right: 16px;

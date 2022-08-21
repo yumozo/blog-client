@@ -10,7 +10,7 @@ export const StyledMenuItems = styled.div<PropType>`
   justify-content: space-between;
   position: absolute;
   margin-top: 0.5rem;
-  right: 0;
+  right: 1rem;
   border-radius: 0.375rem;
   background-color: var(--color-surface);
 

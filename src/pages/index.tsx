@@ -2,8 +2,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import Image from 'next/image'
 import Article from '@components/layout/article'
-import { MaxWidthWrapper } from '@components/styled/maxWidthWrapper'
-import BlockDiv from '@components/styled/blockDiv'
+import { MaxWidthWrapper } from '@components/styles/maxWidthWrapper'
 import Paragraph from '@components/paragraph'
 import Heading from '@components/heading'
 
@@ -37,34 +36,37 @@ const StyledLink = styled(LinkWithLogo)`
   justify-content: space-between;
 `
 
+const StyledImage = styled.img`
+  display: block;
+  width: 100%;
+  opacity: 0.2;
+  max-width: 100%;
+  height: 15rem;
+  padding-top: 64px;
+`
+
 export default function Home() {
   return (
     <Article>
+      <StyledImage src="/assets/background.png" />
       <MaxWidthWrapper>
-        <BlockDiv />
-        <BlockDiv />
         <div className="flex justify-around flex-col">
           <h1>About</h1>
           <h2>Hey!👋</h2>
           <Paragraph>
             I'm Jegor Zyrjanow, a Full&#8209;stack not&#8209;yet
-            &#8209;developer. Primarily interested in .NET &amp;
-            web&#8209;dev stuff. Wanna become a useful one
-            developer or an expert in web dev domain whatever.
-            Also learning CS and UX/UI.
+            &#8209;developer. Primarily interested in .NET &amp; web&#8209;dev
+            stuff. Wanna become a useful one developer or an expert in web dev
+            domain whatever. Also learning CS and UX/UI.
           </Paragraph>
           <Paragraph>
             I Love to search for new information, concepts and other interesting
             things to share with people around.
           </Paragraph>
           <h2>Interests</h2>
-          <Paragraph>
-            Typography, reading, literature collectioning.
-          </Paragraph>
+          <Paragraph>Typography, reading, literature collectioning.</Paragraph>
           <h2>Work</h2>
-          <Paragraph>
-            So.. I didn't work yet &#x1F641;
-          </Paragraph>
+          <Paragraph>So.. I didn't work yet &#x1F641;</Paragraph>
           <h2>Links</h2>
           <Paragraph>
             <StyledLink href="https://github.com/zyrjanow" target="_blank">
@@ -72,8 +74,6 @@ export default function Home() {
             </StyledLink>
           </Paragraph>
         </div>
-        <BlockDiv />
-        <BlockDiv />
       </MaxWidthWrapper>
     </Article>
   )
