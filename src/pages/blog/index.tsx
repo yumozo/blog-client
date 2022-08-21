@@ -1,10 +1,8 @@
-import styled from 'styled-components'
 import Link from 'next/link'
-import Image from 'next/image'
 import Article from '@components/layout/article'
 import { MaxWidthWrapper } from '@components/styles/maxWidthWrapper'
 import Paragraph from '@components/paragraph'
-import Heading from '@components/heading'
+import styled from 'styled-components'
 
 function LinkWithLogo({ children, href, target }: any) {
   return (
@@ -36,38 +34,46 @@ const StyledLink = styled(LinkWithLogo)`
   justify-content: space-between;
 `
 
-const StyledImage = styled.img`
-  display: block;
-  width: 100%;
-  opacity: 0.2;
-  max-width: 100%;
-  height: 15rem;
-  padding-top: 64px;
+const Block = styled.div`
+background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(95,93,106,0.19767441860465118) 50%, rgba(67,66,78,1) 100%);
+  height: 8rem;
+`
+
+const InitialLine = styled.p`
+  align-self: flex-start;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 500;
 `
 
 export default function Home() {
   return (
     <Article>
-      <StyledImage src="/assets/background.png" />
+      <Block />
       <MaxWidthWrapper>
         <div className="flex justify-around flex-col">
-          <h1>About</h1>
-          <h2>Hey!👋</h2>
-          <Paragraph>
-            I'm Jegor Zyrjanow, a student from Siberia, wanna become a
-            Full&#8209;stack developer. Primarily interested in .NET &amp;
-            web&#8209;dev stuff. Wanna become a useful one developer or an
-            expert in web dev domain. Also learning CS and UX/UI.
-          </Paragraph>
-          <Paragraph>
-            I Love to search for new information, concepts and other interesting
-            things to share with people around.
-          </Paragraph>
-          <h2>Interests</h2>
-          <Paragraph>Typography, reading, literature collectioning.</Paragraph>
-          <h2>Work</h2>
-          <Paragraph>So.. I didn't work yet &#x1F641;</Paragraph>
-          <h2>Links</h2>
+          <InitialLine>Last posts</InitialLine>
+          <ContentPreview title='first' href='/blog'>
+            Abstract. First sentenses.
+            <br />
+            bla-bla
+          </ContentPreview>
+
+          <ContentPreview title='second' href='/blog'>
+            Abstract. First sentenses.
+            <br />
+            bla-bla
+          </ContentPreview>
+
+          <ContentPreview title='third' href='/blog'>
+            Abstract. First sentenses.
+            <br />
+            bla-bla
+          </ContentPreview>
+
+          <h2>Contacts</h2>
           <Paragraph>
             <StyledLink href="https://github.com/zyrjanow" target="_blank">
               Github
@@ -79,4 +85,16 @@ export default function Home() {
   )
 }
 
-// export { getServerSideProps } from '../components/chakra'
+function ContentPreview({ title, children, href }: any) {
+  return (
+    <Link href={href}>
+      <a>
+        <h2>{title}</h2>
+        <Paragraph>
+          {children}
+        </Paragraph>
+        <Paragraph><strong>read more</strong></Paragraph>
+      </a>
+    </Link>
+  )
+}

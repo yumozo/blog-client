@@ -95,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    color: var(--secondary);
+    color: var(--color-text);
     font-size: 1.5rem;
     font-weight: 700;
     margin-top: 1.75em;

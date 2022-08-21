@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const SwitchWrapper = styled.div`
+  margin-left: auto;
+
   label {
     cursor: pointer;
   }

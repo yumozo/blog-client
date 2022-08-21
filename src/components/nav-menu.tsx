@@ -92,10 +92,6 @@ const LogoWrapper = styled.span`
   }
 `
 
-const StyledSwitch = styled(ThemeSwitch)`
-  margin-left: auto;
-`
-
 export default function NavMenu() {
   return (
     <StyledNavMenu>
@@ -128,12 +124,11 @@ export default function NavMenu() {
           </p>
         </LinksWrapper>
 
-        <StyledSwitch />
+        <ThemeSwitch />
 
         <div className="dropdown-wrapper">
           <Dropdown />
         </div>
-
       </NavBar>
     </StyledNavMenu>
   )
