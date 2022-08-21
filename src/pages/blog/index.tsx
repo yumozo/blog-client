@@ -3,6 +3,8 @@ import Article from '@components/layout/article'
 import { MaxWidthWrapper } from '@components/styles/maxWidthWrapper'
 import Paragraph from '@components/paragraph'
 import styled from 'styled-components'
+import ContentPreview from '@components/content-preview'
+import Block from '@components/undernav-grad'
 
 function LinkWithLogo({ children, href, target }: any) {
   return (
@@ -34,17 +36,12 @@ const StyledLink = styled(LinkWithLogo)`
   justify-content: space-between;
 `
 
-const Block = styled.div`
-background: linear-gradient(0deg, rgba(2,0,36,0) 0%, rgba(95,93,106,0.19767441860465118) 50%, rgba(67,66,78,1) 100%);
-  height: 8rem;
-`
-
 const InitialLine = styled.p`
-  align-self: flex-start;
+  /* align-self: center; */
   margin-top: 2rem;
   margin-bottom: 0;
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 500;
 `
 
@@ -55,19 +52,19 @@ export default function Home() {
       <MaxWidthWrapper>
         <div className="flex justify-around flex-col">
           <InitialLine>Last posts</InitialLine>
-          <ContentPreview title='first' href='/blog'>
+          <ContentPreview title="First post" href="/blog">
             Abstract. First sentenses.
             <br />
             bla-bla
           </ContentPreview>
 
-          <ContentPreview title='second' href='/blog'>
+          <ContentPreview title="Second post" href="/blog">
             Abstract. First sentenses.
             <br />
             bla-bla
           </ContentPreview>
 
-          <ContentPreview title='third' href='/blog'>
+          <ContentPreview title="Third post" href="/blog">
             Abstract. First sentenses.
             <br />
             bla-bla
@@ -82,19 +79,5 @@ export default function Home() {
         </div>
       </MaxWidthWrapper>
     </Article>
-  )
-}
-
-function ContentPreview({ title, children, href }: any) {
-  return (
-    <Link href={href}>
-      <a>
-        <h2>{title}</h2>
-        <Paragraph>
-          {children}
-        </Paragraph>
-        <Paragraph><strong>read more</strong></Paragraph>
-      </a>
-    </Link>
   )
 }

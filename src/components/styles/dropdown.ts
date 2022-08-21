@@ -4,24 +4,7 @@ type PropType = {
   visibility?: any
 }
 
-export const StyledMenuItems = styled.div<PropType>`
-  visibility: ${props => (props.visibility ? 'hidden' : 'visible')};
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  margin-top: 0.5rem;
-  right: 1rem;
-  border-radius: 0.375rem;
-  background-color: var(--color-surface);
-
-  div {
-    margin: 0.7rem 1.4rem;
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
-`
-
+// Menu button element to show dropdown
 export const StyledMenuButton = styled.button`
   padding: 8px;
   margin-left: 12px;
@@ -48,5 +31,41 @@ export const StyledMenuButton = styled.button`
     height: 1.25rem;
     width: 1.25rem;
     color: #e5e7eb;
+  }
+`
+
+// Dropdown menu itself
+export const StyledMenuItems = styled.div<PropType>`
+  visibility: ${props => (props.visibility ? 'hidden' : 'visible')};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  margin-top: 0.5rem;
+  right: 1rem;
+  border-radius: 0.375rem;
+  background-color: var(--color-surface);
+
+  div {
+    padding: 0.95em;
+    padding-right: 4em;
+    padding-left: 1em;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  a:hover {
+    background-color: #ffffff28;
+  }
+  
+  a:first-child {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+  }
+
+  a:last-child {
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
   }
 `

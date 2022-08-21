@@ -5,11 +5,11 @@ import { StyledMenuButton, StyledMenuItems } from '@styles/dropdown'
 
 function MenuLink({ children, href, target }: any) {
   return (
-    <div>
-      <Link href={href}>
-        <a target={target}>{children}</a>
-      </Link>
-    </div>
+    <Link href={href}>
+      <a target={target}>
+        <div>{children}</div>
+      </a>
+    </Link>
   )
 }
 
@@ -44,12 +44,13 @@ export default function Dropdown(props: any) {
       </StyledMenuButton>
       <StyledMenuItems visibility={state}>
         <MenuLink href="/">Home</MenuLink>
+        <MenuLink href="/blog">Blog</MenuLink>
         <MenuLink href="/projects">Projects</MenuLink>
         <MenuLink
           href="https://github.com/zyrjanow/my-homepage"
           target="_blank"
         >
-          GitHub
+          View Source
         </MenuLink>
       </StyledMenuItems>
     </div>

@@ -5,6 +5,7 @@ import Article from '@components/layout/article'
 import { MaxWidthWrapper } from '@components/styles/maxWidthWrapper'
 import Paragraph from '@components/paragraph'
 import Heading from '@components/heading'
+import Block from '@components/undernav-grad'
 
 function LinkWithLogo({ children, href, target }: any) {
   return (
@@ -48,7 +49,7 @@ const StyledImage = styled.img`
 export default function Home() {
   return (
     <Article>
-      <StyledImage src="/assets/background.png" />
+      <Block />
       <MaxWidthWrapper>
         <div className="flex justify-around flex-col">
           <h1>About</h1>
