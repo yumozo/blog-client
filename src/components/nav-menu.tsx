@@ -39,12 +39,6 @@ const NavBar = styled.nav`
     min-width: 210px;
   }
 
-  .links-wrapper {
-    position: relative;
-    display: flex;
-    margin-left: 1rem;
-  }
-
   .dropdown-wrapper {
     display: none;
   }
@@ -55,10 +49,6 @@ const NavBar = styled.nav`
   }
 
   @media screen and (max-width: 800px) {
-    .links-wrapper {
-      display: none;
-    }
-
     .dropdown-wrapper {
       display: flex;
     }
@@ -72,19 +62,27 @@ const StyledNavMenu = styled.header`
 `
 
 const LinksWrapper = styled.div`
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   justify-content: flex-start;
+  margin-left: 3em;
   align-items: center;
+
+  p {
+    margin-right: 2em;
+  }
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 `
 
 const LogoWrapper = styled.span`
   display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: end;
 
   p {
-    margin-left: 4px;
+    margin-left: 0.25rem;
     font-weight: 600;
     color: var(--secondary);
     font-size: 1.125rem;
@@ -113,13 +111,20 @@ export default function NavMenu() {
 
         <LinksWrapper className="links-wrapper">
           <p>
+            <Link href="/blog">
+              <a>Blog</a>
+            </Link>
+          </p>
+          <p>
             <Link href="/projects">
               <a>My Projects</a>
             </Link>
           </p>
           <p>
-            <Link href="https://github.com/zyrjanow">
-              <a target="blank">GitHub</a>
+            <Link href="https://github.com/zyrjanow/my-blog">
+              <a target="blank">
+                Source
+              </a>
             </Link>
           </p>
         </LinksWrapper>

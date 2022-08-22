@@ -42,7 +42,7 @@ export default function Dropdown(props: any) {
           />
         </svg>
       </StyledMenuButton>
-      <StyledMenuItems visibility={state}>
+      <StyledMenuItems visibility={state} onClick={handleToggle}>
         <MenuLink href="/">Home</MenuLink>
         <MenuLink href="/blog">Blog</MenuLink>
         <MenuLink href="/projects">Projects</MenuLink>
