@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app'
 import App from 'next/app'
-import Layout from '@components/layout/layout'
-import { ThemeProvider, DefaultTheme } from 'styled-components'
+import Layout from '@components/layout/main'
+import { DefaultTheme } from 'styled-components'
 import Fonts from '@components/fonts/fonts'
-import GlobalStyle from '@components/styles/global'
+import GlobalStyle from '@styles/global'
 import '../../styles/global.css'
 
 if (

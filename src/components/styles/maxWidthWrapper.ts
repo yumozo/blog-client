@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const MaxWidthWrapper = styled.div`
   /* position: relative; */
-  max-width: 1100px;
+  max-width: 686px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;

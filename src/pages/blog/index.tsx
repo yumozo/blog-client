@@ -38,8 +38,8 @@ const StyledLink = styled(LinkWithLogo)`
 
 const InitialLine = styled.p`
   /* align-self: center; */
-  margin-top: 2rem;
-  margin-bottom: 0;
+  margin-top: 4rem;
+  margin-bottom: 1.125rem;
   color: var(--primary);
   font-size: 1.25rem;
   font-weight: 500;
@@ -51,7 +51,9 @@ export default function Home() {
       <Block />
       <MaxWidthWrapper>
         <div className="flex justify-around flex-col">
+
           <InitialLine>Last posts</InitialLine>
+
           <ContentPreview title="First post" href="/blog">
             Abstract. First sentenses.
             <br />

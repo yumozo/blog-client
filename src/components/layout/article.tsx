@@ -4,7 +4,7 @@ export default function Article({ children, title }: any) {
   const pageTitle = `${title}`
 
   return (
-    <>
+    <article>
       {title && (
         <Head>
           <title>{pageTitle}</title>
@@ -13,6 +13,6 @@ export default function Article({ children, title }: any) {
 
       {/* <ArticleStyle /> */}
       {children}
-    </>
+    </article>
   )
 }

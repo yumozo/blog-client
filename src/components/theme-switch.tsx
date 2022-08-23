@@ -29,23 +29,52 @@ const SwitchWrapper = styled.div`
   }
 `
 
-const StyledThemeIcon = styled(ThemeIcon)`
+const StyledSwitchIcon = styled(SwitchIcon)`
   height: 24px;
   width: 24px;
   margin: auto;
 `
 
-function ThemeIcon({ strokeWidth, fill, children }: any) {
+const SwitchSvg = styled.svg`
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: auto;
+`
+
+type PropType = {
+  darkTheme?: boolean
+}
+
+const SwitchButton = styled.span<PropType>`
+  color: ${props => props.darkTheme
+    ? 'rgb(31 41 55 / 1)'
+    : 'white'};
+  background-color: ${props => props.darkTheme
+    ? '#fcfcfc'
+    : '#121212'};
+
+  display: flex;
+  pointer-events: none;
+  height: 36px;
+  width: 28px;
+  border-radius: 0.375rem;
+
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+`
+
+function SwitchIcon({ strokeWidth, fill, children }: any) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-6 w-6 m-auto"
+    <SwitchSvg
       fill={fill}
       stroke="currentColor"
       strokeWidth={strokeWidth}
     >
       {children}
-    </svg>
+    </SwitchSvg>
   )
 }
 
@@ -83,35 +112,28 @@ export default function ThemeSwitch() {
             checked={darkTheme as undefined | boolean}
             id="switch-theme"
           />
-          <span
+          <SwitchButton
             aria-hidden="true"
-            className={`${
-              darkTheme
-                ? 'text-gray-800 bg-[#fcfcfc]'
-                : 'text-white bg-[#121212]'
-            }
-            pointer-events-none flex h-[36px] w-[28px]
-            rounded-md shadow-lg ring-0
-            transition duration-200 ease-in-out`}
+            darkTheme={darkTheme}
           >
             {darkTheme ? (
-              <StyledThemeIcon strokeWidth={2} fill={'none'}>
+              <StyledSwitchIcon strokeWidth={2} fill={'none'}>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                 />
-              </StyledThemeIcon>
+              </StyledSwitchIcon>
             ) : (
-              <ThemeIcon strokeWidth={0} fill={'currentColor'}>
+              <SwitchIcon strokeWidth={0} fill={'currentColor'}>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
                 />
-              </ThemeIcon>
+              </SwitchIcon>
             )}
-          </span>
+          </SwitchButton>
         </label>
       </form>
     </SwitchWrapper>

@@ -4,7 +4,7 @@ import NavMenu from '@components/nav-menu'
 
 export default function Layout({ children, router }: any) {
   return (
-    <main>
+    <>
       <Head>
         {/* <meta charSet="utf-8" /> */}
         <meta name="author" content="Jegor Zyrjanow" />
@@ -19,10 +19,10 @@ export default function Layout({ children, router }: any) {
       </Head>
 
       <NavMenu />
-
-      <div>{children}</div>
-
+      <main>
+        {children}
+      </main>
       <StyledFooter />
-    </main>
+    </>
   )
 }

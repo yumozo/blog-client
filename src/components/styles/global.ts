@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   html{
     --color-text: #000;
     --primary: #554994;
-    --secondary: #333137;
+    --secondary: #000;
     --color-bg: #fff;
     --color-surface: #FFCCB3;
     --color-subtext: #c0c0c0;
@@ -23,10 +23,15 @@ const GlobalStyle = createGlobalStyle`
     --color-surface: #3E3F40;
     --color-subtext: #6a6a6a;
   }
+  ::selection {
+    background: #C9BBCF;
+    color: black;
+  }
 
   body {
     background-color: var(--color-bg);
     color: var(--color-text);
+    font-family: Noto sans, sans-serif;
 
     // for testing layout
     /* div {
