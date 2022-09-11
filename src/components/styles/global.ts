@@ -6,6 +6,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #7a7a7a #1c1d1f;
   }
   html{
     --color-text: #000;

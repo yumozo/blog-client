@@ -50,7 +50,6 @@ export default function Home() {
     <Article>
       <Block />
       <MaxWidthWrapper>
-        <div className="flex justify-around flex-col">
 
           <InitialLine>Last posts</InitialLine>
 
@@ -78,7 +77,6 @@ export default function Home() {
               Github
             </StyledLink>
           </Paragraph>
-        </div>
       </MaxWidthWrapper>
     </Article>
   )

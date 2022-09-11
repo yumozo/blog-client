@@ -4,7 +4,6 @@ import Layout from '@components/layout/main'
 import { DefaultTheme } from 'styled-components'
 import Fonts from '@components/fonts/fonts'
 import GlobalStyle from '@styles/global'
-import '../../styles/global.css'
 
 if (
   typeof window !== 'undefined' &&
