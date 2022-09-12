@@ -46,12 +46,8 @@ type PropType = {
 }
 
 const SwitchButton = styled.span<PropType>`
-  color: ${props => props.darkTheme
-    ? 'rgb(31 41 55 / 1)'
-    : 'white'};
-  background-color: ${props => props.darkTheme
-    ? '#fcfcfc'
-    : '#121212'};
+  color: ${props => (props.darkTheme ? 'rgb(31 41 55 / 1)' : 'white')};
+  background-color: ${props => (props.darkTheme ? '#fcfcfc' : '#121212')};
 
   display: flex;
   pointer-events: none;
@@ -60,19 +56,15 @@ const SwitchButton = styled.span<PropType>`
   border-radius: 0.375rem;
 
   transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow,
-    transform, filter, backdrop-filter;
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
 `
 
 function SwitchIcon({ strokeWidth, fill, children }: any) {
   return (
-    <SwitchSvg
-      fill={fill}
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-    >
+    <SwitchSvg fill={fill} stroke="currentColor" strokeWidth={strokeWidth}>
       {children}
     </SwitchSvg>
   )
@@ -112,10 +104,7 @@ export default function ThemeSwitch() {
             checked={darkTheme as undefined | boolean}
             id="switch-theme"
           />
-          <SwitchButton
-            aria-hidden="true"
-            darkTheme={darkTheme}
-          >
+          <SwitchButton aria-hidden="true" darkTheme={darkTheme}>
             {darkTheme ? (
               <StyledSwitchIcon strokeWidth={2} fill={'none'}>
                 <path

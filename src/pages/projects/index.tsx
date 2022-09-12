@@ -19,8 +19,8 @@ export default function Projects() {
           <br />
           Stack: .NET 6, WPF
           <br />
-          <Link href='https://github.com/zyrjanow/wpf-gallery'>
-            <a target='_blank'>
+          <Link href="https://github.com/zyrjanow/wpf-gallery">
+            <a target="_blank">
               <LinkWithLogo>
                 <svg
                   stroke="currentColor"

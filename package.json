@@ -1,7 +1,12 @@
 {
-  "name": "homepage",
+  "name": "blog-client",
   "version": "0.1.0",
-  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "prettier": "prettier --write ."
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -10,6 +15,7 @@
     "@types/node": "^16.11.47",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "axios": "^0.27.2",
     "react": "latest",
     "react-dom": "latest",
     "typescript": "^4.7.4"
@@ -21,12 +27,6 @@
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
     "styled-components": "^5.3.5"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "start": "next start",
-    "build": "next build",
-    "prettier": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [

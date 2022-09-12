@@ -28,8 +28,8 @@ export default function Home() {
           <Paragraph>Reading, media collectioning.</Paragraph>
           <h2>Contacts</h2>
           <Paragraph>
-            <Link href='https://github.com/zyrjanow'>
-              <a target='_blank'>
+            <Link href="https://github.com/zyrjanow">
+              <a target="_blank">
                 <LinkWithLogo>
                   <svg
                     stroke="currentColor"

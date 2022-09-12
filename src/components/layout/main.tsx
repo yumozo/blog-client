@@ -19,9 +19,7 @@ export default function Layout({ children, router }: any) {
       </Head>
 
       <NavMenu />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <StyledFooter />
     </>
   )

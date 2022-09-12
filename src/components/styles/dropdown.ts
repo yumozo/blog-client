@@ -58,7 +58,7 @@ export const StyledMenuItems = styled.div<PropType>`
   a:hover {
     background-color: #ffffff28;
   }
-  
+
   a:first-child {
     border-top-left-radius: 0.375rem;
     border-top-right-radius: 0.375rem;
