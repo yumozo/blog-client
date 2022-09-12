@@ -105,6 +105,11 @@ export default function NavMenu() {
               <a>User list</a>
             </Link>
           </p>
+          <p>
+            <Link href="/signup">
+              <a>Sign up</a>
+            </Link>
+          </p>
         </LinksWrapper>
 
         <ThemeSwitch />

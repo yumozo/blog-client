@@ -100,7 +100,7 @@ const UsersList = (props: any) => {
     <Article>
       <Block />
       <MaxWidthWrapper>
-        <InitialLine>New user</InitialLine>
+        <InitialLine>Sign up</InitialLine>
         <Form>
           <fieldset>
             <legend>Let's set some data</legend>
@@ -129,26 +129,13 @@ const UsersList = (props: any) => {
               <span className="validation-message" id="email-validation"></span>
             </div>
             <div>
-              <label htmlFor="select">Spec</label>
-              <select name="select" id="select">
-                <option value="apple">None</option>
-                <option value="orange">Engineer</option>
-                <option value="orange">Architect</option>
-                <option value="orange">Analyst</option>
-                <option value="orange">Administrator</option>
-              </select>
+              <label htmlFor="password">Password</label>
+              <input type="password" id="password" name="password" minLength={8} required
+                aria-describedby="password-validation" />
+              <span className="validation-message" id="password-validation"></span>
+              {/* <div id="password-minlenght">Enter at least eight characters</div> */}
             </div>
-            {/* <div>
-              <label htmlFor="comment">Please leave a comment</label>
-              <textarea
-                placeholder="It may be empty."
-                name="comment"
-                id="comment"
-                ></textarea>
-              </div> */}
-            <button>Create</button>
-            {/* or */}
-            {/* <input type="submit" value="Save" /> */}
+            <button>Let's start!</button>
           </fieldset>
         </Form>
       </MaxWidthWrapper>

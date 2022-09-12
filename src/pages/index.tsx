@@ -15,17 +15,13 @@ export default function Home() {
           <h1>About</h1>
           <h2>Hey!👋</h2>
           <Paragraph>
-            I'm Jegor Zyrjanow, a student from Siberia, wanna become a
-            Full&#8209;stack developer. Primarily interested in .NET &amp;
-            web&#8209;dev stuff. Wanna become a useful one developer or an
-            expert in web domain. Also learning CS and UX/UI.
+            This is my Coursework proj – Blog website.
           </Paragraph>
+          <h2>What to do?</h2>
           <Paragraph>
-            I Love to search for new information, concepts and other interesting
-            things to share with people around.
+            You can sign up without any verification, then log in. Now,
+            with your <Link href='/signup'><a>new account</a></Link>, make a post either comment somebody's one.
           </Paragraph>
-          <h2>Interests</h2>
-          <Paragraph>Reading, media collectioning.</Paragraph>
           <h2>Contacts</h2>
           <Paragraph>
             <Link href="https://github.com/zyrjanow">

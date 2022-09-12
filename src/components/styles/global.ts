@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     --color-bg: #fff;
     --color-surface: #FFCCB3;
     --color-subtext: #c0c0c0;
+    --color-link: #5b50ab;
   }
   [data-theme='dark'] {
     --color-text: #fff;
@@ -24,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     --color-bg: #1c1d1f;
     --color-surface: #3E3F40;
     --color-subtext: #6a6a6a;
+    --color-link: #fcd4e2;
   }
   ::selection {
     background: #C9BBCF;

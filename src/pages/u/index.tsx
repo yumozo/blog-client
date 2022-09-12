@@ -84,26 +84,23 @@ const UsersList = (props: any) => {
               <>
                 <h2>{user.name}</h2>
                 <p className="card-text">
-                  <strong>Cuisine: </strong>
-                  {user.cuisine}
-                  <br />
                   <p>info: {info}</p>
                 </p>
-
+                <br />
                 <div>
-                  <Link
-                    href={'/restaurants/' + user._id}
-                    className="btn btn-primary col-lg-5 mx-1 mb-1"
-                  >
-                    View Reviews
+                  <Link href={'/users/' + user.id}>
+                    <a>
+                      View Page
+                    </a>
                   </Link>
-                  <a
+                  <link href="" />
+                  {/* <a
                     target="_blank"
                     href={'https://www.google.com/maps/place/' + info}
                     className="btn btn-primary col-lg-5 mx-1 mb-1"
                   >
                     View Map
-                  </a>
+                  </a> */}
                 </div>
               </>
             )
@@ -115,40 +112,3 @@ const UsersList = (props: any) => {
 }
 
 export default UsersList
-
-/* export default */ function Users() {
-  return (
-    <Article>
-      <Block />
-      <MaxWidthWrapper>
-        {/* <div className="flex justify-around flex-col"> */}
-        <InitialLine>Last posts</InitialLine>
-        <ContentPreview title="First post" href="/blog">
-          Abstract. First sentenses.
-          <br />
-          bla-bla
-        </ContentPreview>
-
-        <ContentPreview title="Second post" href="/blog">
-          Abstract. First sentenses.
-          <br />
-          bla-bla
-        </ContentPreview>
-
-        <ContentPreview title="Third post" href="/blog">
-          Abstract. First sentenses.
-          <br />
-          bla-bla
-        </ContentPreview>
-
-        <h2>Contacts</h2>
-        <Paragraph>
-          <StyledLink href="https://github.com/zyrjanow" target="_blank">
-            Github
-          </StyledLink>
-        </Paragraph>
-        {/* </div> */}
-      </MaxWidthWrapper>
-    </Article>
-  )
-}
