@@ -1,16 +1,16 @@
 import http from '../http-common'
 
 class UsersDataService {
-  getAll(page = 0) {
-    return http.get(`/users/?page=${page}`)
+  getAll() {
+    return http.get(`/users`)
   }
 
   get(id: number) {
     return http.get(`/users/${id}`)
   }
 
-  find(query: any, by = 'name', page = 0) {
-    return http.get(`/users/?${by}=${query}&page=${page}`)
+  find(query: any, by = 'filter') {
+    return http.get(`/users?${by}=${query}`)
   }
 
   createUser(data: object) {

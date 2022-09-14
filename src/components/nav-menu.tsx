@@ -95,14 +95,19 @@ export default function NavMenu() {
       <NavBar>
         <Link href="/">
           <a>
-            <LogoWrapper>DbProj</LogoWrapper>
+            <LogoWrapper>Blog</LogoWrapper>
           </a>
         </Link>
 
         <LinksWrapper className="links-wrapper">
           <p>
-            <Link href="/users">
-              <a>User list</a>
+            <Link href="/search">
+              <a>Search</a>
+            </Link>
+          </p>
+          <p>
+            <Link href="/u">
+              <a>View all users</a>
             </Link>
           </p>
           <p>

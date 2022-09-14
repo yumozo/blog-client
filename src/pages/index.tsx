@@ -14,13 +14,15 @@ export default function Home() {
         <div className="flex justify-around flex-col">
           <h1>About</h1>
           <h2>Hey!👋</h2>
-          <Paragraph>
-            This is my Coursework proj – Blog website.
-          </Paragraph>
+          <Paragraph>This is my Coursework proj – Blog website.</Paragraph>
           <h2>What to do?</h2>
           <Paragraph>
-            You can sign up without any verification, then log in. Now,
-            with your <Link href='/signup'><a>new account</a></Link>, make a post either comment somebody's one.
+            You can sign up without any verification, then log in. Now, with
+            your{' '}
+            <Link href="/signup">
+              <a>new account</a>
+            </Link>
+            , make a post either comment somebody's one.
           </Paragraph>
           <h2>Contacts</h2>
           <Paragraph>

@@ -21,9 +21,8 @@ const InitialLine = styled.p`
 
 const Form = styled.form`
   fieldset {
-    padding: 1rem 1.25rem;
-
-    /* border-width: 2px; */
+    /* padding: 1rem 1.25rem; */
+    border-width: 0px;
   }
 
   legend,
@@ -41,6 +40,11 @@ const Form = styled.form`
   select {
     border: 1px solid;
     background-color: white;
+  }
+
+  input {
+    margin-left: 0.85em;
+    padding: 0.1em;
   }
 
   textarea {
@@ -100,12 +104,15 @@ const UsersList = (props: any) => {
     <Article>
       <Block />
       <MaxWidthWrapper>
-        <InitialLine>Sign up</InitialLine>
+        <h1>Sign up</h1>
         <Form>
           <fieldset>
-            <legend>Let's set some data</legend>
+            <h3>
+              <legend>Let's set some data</legend>
+            </h3>
+            <br />
             <div>
-              <label htmlFor="email">Full name</label>
+              <label htmlFor="name">Name</label>
               <input
                 type="name"
                 id="name"
@@ -130,9 +137,18 @@ const UsersList = (props: any) => {
             </div>
             <div>
               <label htmlFor="password">Password</label>
-              <input type="password" id="password" name="password" minLength={8} required
-                aria-describedby="password-validation" />
-              <span className="validation-message" id="password-validation"></span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                minLength={8}
+                required
+                aria-describedby="password-validation"
+              />
+              <span
+                className="validation-message"
+                id="password-validation"
+              ></span>
               {/* <div id="password-minlenght">Enter at least eight characters</div> */}
             </div>
             <button>Let's start!</button>

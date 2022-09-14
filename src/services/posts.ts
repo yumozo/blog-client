@@ -1,16 +1,16 @@
 import http from '../http-common'
 
 class PostsDataService {
-  getAll(page = 0) {
-    return http.get(`/posts/?page=${page}`)
+  getAll() {
+    return http.get(`/posts`)
   }
 
   get(id: number) {
-    return http.get(`/posts//${id}`)
+    return http.get(`/posts/${id}`)
   }
 
-  find(query: any, by = 'title', page = 0) {
-    return http.get(`/posts/?${by}=${query}&page=${page}`)
+  find(query: any, by = 'filter') {
+    return http.get(`/posts?${by}=${query}`)
   }
 
   createPost(data: object) {

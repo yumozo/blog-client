@@ -9,7 +9,7 @@ import Paragraph from '@components/paragraph'
 import ContentPreview from '@components/content-preview'
 import Block from '@components/undernav-grad'
 
-import UsersDataService from '../../services/users'
+import PostsDataService from '../../services/posts'
 
 function LinkWithLogo({ children, href, target }: any) {
   return (
@@ -51,40 +51,37 @@ const InitialLine = styled.p`
 `
 
 export default function UserPage(props: any) {
-  // const [users, setUsers] = useState([])
-  const [user, setUser] = useState(undefined as any)
-  const [searchName, setSearchName] = useState('')
-  const [searchEmail, setSearchEmail] = useState('')
+  const [post, setPost] = useState(undefined as any)
   const { id } = useRouter().query // is null,
   // string, or array of string
-  let userId: number
+  let postId: number
 
   if (!id) {
     console.error('No account with queried ID')
-    userId = 0
+    postId = 0
   } else if (Array.isArray(id)) {
-    userId = parseInt(id.join(''))
+    postId = parseInt(id.join(''))
   } else {
-    userId = parseInt(id)
+    postId = parseInt(id)
   }
 
   useEffect(() => {
-    retrieveUser(userId)
+    retrievePost(postId)
     // ...
   }, [])
 
-  const retrieveUser = (id: number) => {
-    UsersDataService.get(id)
+  const retrievePost = (id: number) => {
+    PostsDataService.get(id)
       .then((res: any) => {
         console.log(res.data[0])
-        setUser(res.data[0])
+        setPost(res.data[0])
       })
       .catch((error: any) => {
         console.error(error)
       })
   }
 
-  if (!user) {
+  if (!post) {
     return <h1>Undefined</h1>
   }
 
@@ -95,10 +92,10 @@ export default function UserPage(props: any) {
         <InitialLine>User page</InitialLine>
         <div>
           <>
-            <h2>{user.name}</h2>
+            <h2>{post.title}</h2>
             <p className="card-text">
               <p>
-                info: {user.name}, {user.email}`
+                info: {post.title}, {post.content}`
               </p>
             </p>
           </>

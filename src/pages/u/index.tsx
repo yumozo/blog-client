@@ -51,8 +51,7 @@ const InitialLine = styled.p`
 
 const UsersList = (props: any) => {
   const [users, setUsers] = useState([])
-  const [searchName, setSearchName] = useState('')
-  const [searchEmail, setSearchEmail] = useState('')
+  const [inputText, setInputText] = useState('')
 
   useEffect(() => {
     retrieveUsers()
@@ -75,37 +74,21 @@ const UsersList = (props: any) => {
     <Article>
       <Block />
       <MaxWidthWrapper>
-        <InitialLine>Users list</InitialLine>
-        <div>
-          {users.map((user: any) => {
-            const info = `${user.name}, ${user.email}`
+        <h1>Users list</h1>
 
-            return (
-              <>
-                <h2>{user.name}</h2>
-                <p className="card-text">
-                  <p>info: {info}</p>
-                </p>
-                <br />
-                <div>
-                  <Link href={'/users/' + user.id}>
-                    <a>
-                      View Page
-                    </a>
-                  </Link>
-                  <link href="" />
-                  {/* <a
-                    target="_blank"
-                    href={'https://www.google.com/maps/place/' + info}
-                    className="btn btn-primary col-lg-5 mx-1 mb-1"
-                  >
-                    View Map
-                  </a> */}
-                </div>
-              </>
-            )
-          })}
-        </div>
+        {users.map((user: any) => {
+          const info = `${user.name}, ${user.email}`
+
+          return (
+            <>
+              <h2>{user.name}</h2>
+              <Paragraph>info: {info}</Paragraph>
+              <Link href={'/u/' + user.id}>
+                <a>View Page</a>
+              </Link>
+            </>
+          )
+        })}
       </MaxWidthWrapper>
     </Article>
   )
