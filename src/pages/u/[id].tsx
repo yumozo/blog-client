@@ -92,16 +92,46 @@ export default function UserPage(props: any) {
     <Article>
       <Block />
       <MaxWidthWrapper>
-        <InitialLine>User page</InitialLine>
+        <h1>{user.name}'s page</h1>
         <div>
           <>
-            <h2>{user.name}</h2>
+            {/* <h2>{user.name}</h2> */}
             <p className="card-text">
               <p>
-                info: {user.name}, {user.email}`
+                Info: {user.name}, {user.email}
               </p>
             </p>
           </>
+        </div>
+        <div>
+          <InitialLine>Last posts</InitialLine>
+          <ContentPreview title='Another one post!' href=''>
+            <Paragraph>
+              Hello There! This is my first Post! Lorem ipsum dolor, sit amet
+              consectetur adipisicing elit. Laboriosam cum fugiat ipsum quaerat?
+              Veniam modi deserunt accusantium officia fuga.
+            </Paragraph>
+          </ContentPreview>
+
+          <ContentPreview title='Setting up a simple server with Express.js' href=''>
+            <Paragraph>
+              In this post we'll try to implement a simple REST API using
+              PostgreSQL as a DBMS.
+            </Paragraph>
+            <Paragraph>
+              Necessitatibus, deserunt! Lorem ipsum dolor sit amet. Lorem ipsum,
+              dolor sit amet consectetur adipisicing elit. Animi, perferendis
+              dolores voluptatibus quis explicabo sed repellat quos ad. Quasi, totam.
+            </Paragraph>
+          </ContentPreview>
+
+          <ContentPreview title={`Hello! My name is ${user.name}`} href=''>
+            <Paragraph>
+              Hello There! This is my first Post! Lorem ipsum dolor, sit amet
+              consectetur adipisicing elit. Laboriosam cum fugiat ipsum quaerat?
+              Veniam modi deserunt accusantium officia fuga.
+            </Paragraph>
+          </ContentPreview>
         </div>
       </MaxWidthWrapper>
     </Article>
