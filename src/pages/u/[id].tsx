@@ -51,10 +51,7 @@ const InitialLine = styled.p`
 `
 
 export default function UserPage(props: any) {
-  // const [users, setUsers] = useState([])
   const [user, setUser] = useState(undefined as any)
-  const [searchName, setSearchName] = useState('')
-  const [searchEmail, setSearchEmail] = useState('')
   const { id } = useRouter().query // is null,
   // string, or array of string
   let userId: number
@@ -94,18 +91,17 @@ export default function UserPage(props: any) {
       <MaxWidthWrapper>
         <h1>{user.name}'s page</h1>
         <div>
-          <>
-            {/* <h2>{user.name}</h2> */}
-            <p className="card-text">
-              <p>
-                Info: {user.name}, {user.email}
-              </p>
-            </p>
-          </>
+          {/* <h2>{user.name}</h2> */}
+          <p>
+            Info: {user.name}, {user.email}
+          </p>
         </div>
         <div>
           <InitialLine>Last posts</InitialLine>
-          <ContentPreview title='Another one post!' href=''>
+          <ContentPreview
+            title="Another one post!"
+            href={`../post/${0}`}
+          >
             <Paragraph>
               Hello There! This is my first Post! Lorem ipsum dolor, sit amet
               consectetur adipisicing elit. Laboriosam cum fugiat ipsum quaerat?
@@ -113,7 +109,10 @@ export default function UserPage(props: any) {
             </Paragraph>
           </ContentPreview>
 
-          <ContentPreview title='Setting up a simple server with Express.js' href=''>
+          <ContentPreview
+            title="Setting up a simple server with Express.js"
+            href={`../post/${id}`}
+          >
             <Paragraph>
               In this post we'll try to implement a simple REST API using
               PostgreSQL as a DBMS.
@@ -121,11 +120,15 @@ export default function UserPage(props: any) {
             <Paragraph>
               Necessitatibus, deserunt! Lorem ipsum dolor sit amet. Lorem ipsum,
               dolor sit amet consectetur adipisicing elit. Animi, perferendis
-              dolores voluptatibus quis explicabo sed repellat quos ad. Quasi, totam.
+              dolores voluptatibus quis explicabo sed repellat quos ad. Quasi,
+              totam.
             </Paragraph>
           </ContentPreview>
 
-          <ContentPreview title={`Hello! My name is ${user.name}`} href=''>
+          <ContentPreview
+            title={`Hello! My name is ${user.name}`}
+            href={`../post/${id}`}
+          >
             <Paragraph>
               Hello There! This is my first Post! Lorem ipsum dolor, sit amet
               consectetur adipisicing elit. Laboriosam cum fugiat ipsum quaerat?

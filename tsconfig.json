@@ -37,6 +37,9 @@
       ],
       "@styles/*": [
         "components/styles/*"
+      ],
+      "@utils/*": [
+        "utils/*"
       ]
     },
     "incremental": true

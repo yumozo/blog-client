@@ -9,6 +9,8 @@ import ContentPreview from '@components/content-preview'
 import Block from '@components/undernav-grad'
 
 import UsersDataService from '../../services/users'
+import Input from '@components/form/input'
+import { useRouter } from 'next/router'
 
 const InitialLine = styled.p`
   /* align-self: center; */
@@ -82,21 +84,21 @@ const Form = styled.form`
 `
 
 const UsersList = (props: any) => {
+  const router = useRouter()
   const [userName, setUserName] = useState('')
   const [userEmail, setUserEmail] = useState('')
-  const [userAddress, setUserAddress] = useState('')
+  const [userPassword, setUserPassword] = useState('')
 
-  // useEffect(() => {
-  //   retrieveUsers()
-  //   // ...
-  // }, [])
-
-  const saveData = () => {
-    let data = {
-      user_id: 1,
+  const handleSignup = () => {
+    const data = {
       name: userName,
       email: userEmail,
-      address: userAddress
+      password: userPassword // hash it later
+    }
+
+    if (userName && userEmail && userPassword) {
+      UsersDataService.createUser(data)
+      router.push('../')
     }
   }
 
@@ -111,47 +113,33 @@ const UsersList = (props: any) => {
               <legend>Let's set some data</legend>
             </h3>
             <br />
-            <div>
-              <label htmlFor="name">Name</label>
-              <input
-                type="name"
-                id="name"
-                name="name"
-                required
-                autoComplete="name"
-                aria-describedby="name-validation"
-              />
-              <span className="validation-message" id="name-validation"></span>
-            </div>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                autoComplete="email"
-                aria-describedby="email-validation"
-              />
-              <span className="validation-message" id="email-validation"></span>
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                minLength={8}
-                required
-                aria-describedby="password-validation"
-              />
-              <span
-                className="validation-message"
-                id="password-validation"
-              ></span>
+            <Input
+              type="name"
+              validation="name-validation"
+              onChange={(e: any) => {
+                setUserName(e.target.value)
+              }}
+            />
+            <Input
+              type="email"
+              validation="email-validation"
+              onChange={(e: any) => {
+                setUserEmail(e.target.value)
+              }}
+            />
+            <Input
+              type="password"
+              validation="password-validation"
+              minLength={8}
+              onChange={(e: any) => {
+                setUserPassword(e.target.value)
+              }}
+            >
               {/* <div id="password-minlenght">Enter at least eight characters</div> */}
-            </div>
-            <button>Let's start!</button>
+            </Input>
+            <button type="button" onClick={handleSignup}>
+              Let's start!
+            </button>
           </fieldset>
         </Form>
       </MaxWidthWrapper>

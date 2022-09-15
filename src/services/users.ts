@@ -14,7 +14,7 @@ class UsersDataService {
   }
 
   createUser(data: object) {
-    return http.post('/users/new', data)
+    return http.post('/users/', data)
   }
 
   updateUser(data: object) {

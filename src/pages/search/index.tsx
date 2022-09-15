@@ -12,6 +12,7 @@ import SearchButton from '@components/ui/search-btn'
 
 import UsersDataService from '../../services/users'
 import PostsDataService from '../../services/posts'
+import SearchForm from '@components/form/search-form'
 
 const StyledLink = styled(LinkWithLogo)`
   display: inline-flex;
@@ -29,9 +30,27 @@ const InitialLine = styled.p`
   font-weight: 500;
 `
 
-const SearchForm = styled.form`
+const Fieldset = styled.fieldset`
   display: flex;
-  gap: 0.5em;
+  justify-content: space-between;
+
+  .search-field {
+    input {
+      margin-left: 0.5em;
+    }
+    button {
+      margin-left: 0.5em;
+    }
+  }
+
+  .radio {
+    display: flex;
+    gap: 1em;
+
+    div input {
+      margin-left: 0.5em;
+    }
+  }
 `
 
 const SearchPage = (props: any) => {
@@ -45,7 +64,7 @@ const SearchPage = (props: any) => {
   // }, [users])
 
   const inputHandle = (e: any) => {
-    let input = e.target.value.toLowerCase();
+    let input = e.target.value.toLowerCase()
     setInputText(input)
   }
 
@@ -56,15 +75,12 @@ const SearchPage = (props: any) => {
   }
 
   const find = () => {
-    
     if (inputText == '') {
       setUsers([])
       setPosts([])
       return
     }
     if (filter === 'users') {
-      console.log(filter);
-      
       UsersDataService.find(inputText)
         .then((res: any) => {
           console.log(res.data)
@@ -90,39 +106,14 @@ const SearchPage = (props: any) => {
       <Block />
       <MaxWidthWrapper>
         {/* <h1></h1> */}
-        <SearchForm>
-          <div>
-            <label htmlFor="search">What you want to find? </label>
-            <input
-              name="search"
-              id="search"
-              type="search"
-              onChange={inputHandle}
-            />
-          </div>
-          <SearchButton type='button' onClick={find}>🔎</SearchButton>
-        </SearchForm>
-        <form>
-          <label htmlFor="users">Users</label>
-          <input
-            name='filter'
-            id='users'
-            type="radio"
-            value='users'
-            checked={filter === 'users'}
-            onChange={changeHandle}
-          />
-          <br />
-          <label htmlFor="posts">Posts</label>
-          <input
-            name='filter'
-            id='posts'
-            type="radio"
-            value='posts'
-            checked={filter === 'posts'}
-            onChange={changeHandle}
-          />
-        </form>
+
+        <SearchForm
+          inputHandle={inputHandle}
+          changeHandle={changeHandle}
+          searchHandle={find}
+          filter={inputText}
+        />
+
         {users.length > 0 &&
           users.map((user: any) => {
             const info = `${user.name}, ${user.email}`
@@ -131,27 +122,24 @@ const SearchPage = (props: any) => {
               <>
                 <h2>{user.name}</h2>
                 <Paragraph>info: {info}</Paragraph>
-                <Link href={'/u/' + user.id}>
+                <Link href={'/u/' + user.user_id}>
                   <a>View Page</a>
                 </Link>
               </>
             )
-          })
-        }
+          })}
         {posts.length > 0 &&
           posts.map((post: any) => {
             // const info = `${post.title}, ${post.email}`
             return (
-              <>
-                <h2>{post.title}</h2>
-                {/* <Paragraph>info: {info}</Paragraph> */}
-                <Link href={'/u/' + post.id}>
-                  <a>View Page</a>
-                </Link>
-              </>
+              <ContentPreview
+                title={post.title}
+                href={`../post/${post.post_id}`}
+              >
+                {post.summary}
+              </ContentPreview>
             )
-          })
-        }
+          })}
       </MaxWidthWrapper>
     </Article>
   )

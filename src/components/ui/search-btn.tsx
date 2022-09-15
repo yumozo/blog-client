@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const SearchButton = styled.button`
   padding: 0.15em 0.15em;

@@ -50,14 +50,14 @@ const InitialLine = styled.p`
   font-weight: 500;
 `
 
-export default function UserPage(props: any) {
+export default function PostPage(props: any) {
   const [post, setPost] = useState(undefined as any)
   const { id } = useRouter().query // is null,
   // string, or array of string
   let postId: number
 
   if (!id) {
-    console.error('No account with queried ID')
+    console.error('No post with queried ID')
     postId = 0
   } else if (Array.isArray(id)) {
     postId = parseInt(id.join(''))
@@ -89,16 +89,15 @@ export default function UserPage(props: any) {
     <Article>
       <Block />
       <MaxWidthWrapper>
-        <InitialLine>User page</InitialLine>
+        <h1>{post.title}</h1>
+        <Paragraph>
+          <b>Author:</b>{' '}
+          <Link href={`../u/${post.user_id}`}>
+            <a>{post.name}</a>
+          </Link>
+        </Paragraph>
         <div>
-          <>
-            <h2>{post.title}</h2>
-            <p className="card-text">
-              <p>
-                info: {post.title}, {post.content}`
-              </p>
-            </p>
-          </>
+          <Paragraph>{post.content}`</Paragraph>
         </div>
       </MaxWidthWrapper>
     </Article>

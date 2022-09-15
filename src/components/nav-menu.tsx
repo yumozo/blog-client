@@ -84,7 +84,7 @@ const LogoWrapper = styled.span`
   gap: 0.25rem;
 
   font-weight: 600;
-  color: var(--secondary);
+  /* color: #fff; */
   font-size: 1.125rem;
   line-height: 1.75rem;
 `
@@ -95,19 +95,14 @@ export default function NavMenu() {
       <NavBar>
         <Link href="/">
           <a>
-            <LogoWrapper>Blog</LogoWrapper>
+            <LogoWrapper>BlogProj</LogoWrapper>
           </a>
         </Link>
 
         <LinksWrapper className="links-wrapper">
           <p>
-            <Link href="/search">
-              <a>Search</a>
-            </Link>
-          </p>
-          <p>
-            <Link href="/u">
-              <a>View all users</a>
+            <Link href="/">
+              <a>About</a>
             </Link>
           </p>
           <p>
