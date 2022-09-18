@@ -18,9 +18,7 @@ const StyledFooter = styled.footer`
 export default function Footer() {
   return (
     <StyledFooter>
-      <p>
-        &copy; {new Date().getFullYear()} Jegor Zyrjanow. All Rights Reserved.
-      </p>
+      <p>&copy; {new Date().getFullYear()} JZ. Under the MIT license.</p>
     </StyledFooter>
   )
 }

@@ -16,7 +16,9 @@ export const StyledMenuButton = styled.button`
   color: black;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  border-width: 0;
   border-radius: 0.375rem;
+  cursor: pointer;
 
   &:hover {
     background-color: #0000004d;

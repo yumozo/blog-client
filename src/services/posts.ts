@@ -14,7 +14,7 @@ class PostsDataService {
   }
 
   createPost(data: object) {
-    return http.post('/posts/new', data)
+    return http.post('/posts/', data)
   }
 
   updatePost(data: object) {

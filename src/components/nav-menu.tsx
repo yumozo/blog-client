@@ -101,7 +101,17 @@ export default function NavMenu() {
 
         <LinksWrapper className="links-wrapper">
           <p>
-            <Link href="/">
+            <Link href="/new">
+              <a>Create Post</a>
+            </Link>
+          </p>
+          <p>
+            <Link href="/search">
+              <a>Search</a>
+            </Link>
+          </p>
+          <p>
+            <Link href="/about">
               <a>About</a>
             </Link>
           </p>

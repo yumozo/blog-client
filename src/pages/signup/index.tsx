@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 import Article from '@components/layout/article'
-import { MaxWidthWrapper } from '@components/styles/maxWidthWrapper'
+import { MaxWidthWrapper } from '@components/styles/max-width-wrapper'
 import Paragraph from '@components/paragraph'
 import ContentPreview from '@components/content-preview'
 import Block from '@components/undernav-grad'
@@ -11,6 +11,7 @@ import Block from '@components/undernav-grad'
 import UsersDataService from '../../services/users'
 import Input from '@components/form/input'
 import { useRouter } from 'next/router'
+import Button from '@components/ui/button'
 
 const InitialLine = styled.p`
   /* align-self: center; */
@@ -27,51 +28,13 @@ const Form = styled.form`
     border-width: 0px;
   }
 
-  legend,
-  label,
-  .validation-message {
-    user-select: none;
-  }
-
-  .validation-message {
-    color: rosybrown;
-  }
-
-  textarea,
-  input,
-  select {
-    border: 1px solid;
-    background-color: white;
-  }
-
-  input {
-    margin-left: 0.85em;
-    padding: 0.1em;
-  }
-
-  textarea {
-    padding: 0.1em 0.15em;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
-    font-size: 0.965rem;
-    /* line-height: 1.1; */
-    resize: vertical;
-  }
+  // copied to "input" in "form" folder
 
   button {
-    color: white;
-    background: #121212;
+    margin-top: 0.75em;
     font-weight: 700;
-
     width: 100%;
-    height: 2em;
-    border: 0.015em solid white;
-    border-radius: 0.5em;
-  }
-
-  button:hover {
-    background-color: #282828;
+    height: 1.75em;
   }
 
   & div {
@@ -84,11 +47,12 @@ const Form = styled.form`
 `
 
 const UsersList = (props: any) => {
-  const router = useRouter()
   const [userName, setUserName] = useState('')
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
 
+  const router = useRouter()
+  
   const handleSignup = () => {
     const data = {
       name: userName,
@@ -137,9 +101,9 @@ const UsersList = (props: any) => {
             >
               {/* <div id="password-minlenght">Enter at least eight characters</div> */}
             </Input>
-            <button type="button" onClick={handleSignup}>
+            <Button type="button" onClick={handleSignup}>
               Let's start!
-            </button>
+            </Button>
           </fieldset>
         </Form>
       </MaxWidthWrapper>

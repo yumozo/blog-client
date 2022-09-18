@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import styled from 'styled-components'
-import { StyledMenuButton, StyledMenuItems } from '@styles/dropdown'
+import {
+  StyledMenuButton,
+  StyledMenuItems
+} from '@components/styles/dropdown-btn'
+import LinkWithLogo from './ui/link-with-logo'
 
 function MenuLink({ children, href, target }: any) {
   return (
@@ -44,14 +48,16 @@ export default function Dropdown(props: any) {
       </StyledMenuButton>
       <StyledMenuItems visibility={state} onClick={handleToggle}>
         <MenuLink href="/">Home</MenuLink>
-        <MenuLink href="/blog">Blog</MenuLink>
-        <MenuLink href="/projects">Projects</MenuLink>
-        <MenuLink
-          href="https://github.com/zyrjanow/my-homepage"
+        <MenuLink href="/new">New post</MenuLink>
+        <MenuLink href="/search">Search</MenuLink>
+        <MenuLink href="/about">About</MenuLink>
+        <MenuLink href="/signup">Sign up</MenuLink>
+        {/* <MenuLink
+          href="https://github.com/zyrjanow/blog-server"
           target="_blank"
         >
           View Source
-        </MenuLink>
+        </MenuLink> */}
       </StyledMenuItems>
     </div>
   )

@@ -4,12 +4,14 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 import Article from '@components/layout/article'
-import { MaxWidthWrapper } from '@components/styles/maxWidthWrapper'
+import { MaxWidthWrapper } from '@components/styles/max-width-wrapper'
 import Paragraph from '@components/paragraph'
 import ContentPreview from '@components/content-preview'
 import Block from '@components/undernav-grad'
 
 import PostsDataService from '../../services/posts'
+import { EditorContent, useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
 
 function LinkWithLogo({ children, href, target }: any) {
   return (
@@ -51,11 +53,17 @@ const InitialLine = styled.p`
 `
 
 export default function PostPage(props: any) {
-  const [post, setPost] = useState(undefined as any)
-  const { id } = useRouter().query // is null,
-  // string, or array of string
+  const [post, setPost] = useState({
+    authorId: 0,
+    authorName: 'author name',
+    title: 'title',
+    creationDate: 'date',
+    content: 'content'
+  })
+  // --- FORMAT
+  const { id } = useRouter().query // is null, string, or array of string
   let postId: number
-
+  // received id validation
   if (!id) {
     console.error('No post with queried ID')
     postId = 0
@@ -64,25 +72,43 @@ export default function PostPage(props: any) {
   } else {
     postId = parseInt(id)
   }
-
+  // ---
+  // getting post with id
   useEffect(() => {
     retrievePost(postId)
-    // ...
   }, [])
-
   const retrievePost = (id: number) => {
     PostsDataService.get(id)
       .then((res: any) => {
         console.log(res.data[0])
-        setPost(res.data[0])
+        const postData = res.data[0]
+        setPost({
+          authorId: postData.user_id,
+          authorName: postData.name,
+          title: postData.title,
+          creationDate: new Date(postData.creation_date).toLocaleDateString('en-UK'),
+          content: postData.content
+        })
       })
       .catch((error: any) => {
         console.error(error)
       })
   }
-
   if (!post) {
-    return <h1>Undefined</h1>
+    console.error("no post data.");
+  } else {
+    console.log(post);
+  }
+  // setting up read-only editor
+  const editor = useEditor({
+    editable: false,
+    content: post.content,
+    extensions: [StarterKit]
+  })
+  console.log(editor);
+
+  if (!editor) {
+    return <h1>There's troubles with editor</h1>
   }
 
   return (
@@ -92,13 +118,16 @@ export default function PostPage(props: any) {
         <h1>{post.title}</h1>
         <Paragraph>
           <b>Author:</b>{' '}
-          <Link href={`../u/${post.user_id}`}>
-            <a>{post.name}</a>
+          <Link href={`../u/${post.authorId}`}>
+            <a>{post.authorName}</a>
           </Link>
+          <Paragraph>Publication date: {post.creationDate}</Paragraph>
         </Paragraph>
-        <div>
-          <Paragraph>{post.content}`</Paragraph>
-        </div>
+        {/* <div> */}
+          {/* <></> */}
+          <EditorContent editor={editor} />
+
+        {/* </div> */}
       </MaxWidthWrapper>
     </Article>
   )

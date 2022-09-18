@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 import Article from '@components/layout/article'
-import { MaxWidthWrapper } from '@components/styles/maxWidthWrapper'
+import { MaxWidthWrapper } from '@components/styles/max-width-wrapper'
 import Paragraph from '@components/paragraph'
 import ContentPreview from '@components/content-preview'
 import Block from '@components/undernav-grad'

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 import Article from '@components/layout/article'
-import { MaxWidthWrapper } from '@components/styles/maxWidthWrapper'
+import { MaxWidthWrapper } from '@components/styles/max-width-wrapper'
 import Paragraph from '@components/paragraph'
 import ContentPreview from '@components/content-preview'
 import Block from '@components/undernav-grad'
@@ -98,10 +98,7 @@ export default function UserPage(props: any) {
         </div>
         <div>
           <InitialLine>Last posts</InitialLine>
-          <ContentPreview
-            title="Another one post!"
-            href={`../post/${0}`}
-          >
+          <ContentPreview title="Another one post!" href={`../post/${0}`}>
             <Paragraph>
               Hello There! This is my first Post! Lorem ipsum dolor, sit amet
               consectetur adipisicing elit. Laboriosam cum fugiat ipsum quaerat?
