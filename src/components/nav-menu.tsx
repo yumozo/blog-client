@@ -120,6 +120,11 @@ export default function NavMenu() {
               <a>Sign up</a>
             </Link>
           </p>
+          <p>
+            <Link href="/profile">
+              <a>Profile</a>
+            </Link>
+          </p>
         </LinksWrapper>
 
         <ThemeSwitch />

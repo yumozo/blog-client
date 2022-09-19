@@ -83,7 +83,7 @@ const UsersList = (props: any) => {
             <>
               <h2>{user.name}</h2>
               <Paragraph>info: {info}</Paragraph>
-              <Link href={'/u/' + user.id}>
+              <Link href={'/u/' + user.user_id}>
                 <a>View Page</a>
               </Link>
             </>

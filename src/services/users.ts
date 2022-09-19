@@ -5,8 +5,12 @@ class UsersDataService {
     return http.get(`/users`)
   }
 
-  get(id: number) {
+  getById(id: number) {
     return http.get(`/users/${id}`)
+  }
+
+  getByName(name: string) {
+    return http.get(`/users/byName/${name}`)
   }
 
   find(query: any, by = 'filter') {

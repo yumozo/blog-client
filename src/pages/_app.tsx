@@ -1,9 +1,10 @@
 import type { AppProps } from 'next/app'
 import App from 'next/app'
+import { SWRConfig } from 'swr'
 import Layout from '@components/layout/main'
-import { DefaultTheme } from 'styled-components'
 import Fonts from '@components/fonts/fonts'
 import GlobalStyle from '@styles/global'
+import fetchJson from 'lib/fetchJson'
 
 if (
   typeof window !== 'undefined' &&
@@ -15,7 +16,14 @@ if (
 // ADDED ROUTER PROP
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <>
+    <SWRConfig
+      value={{
+        fetcher: fetchJson,
+        onError: (error) => {
+          console.error(error)
+        }
+      }}
+    >
       {/* <ThemeProvider theme={theme}> */}
       <Fonts />
       <GlobalStyle />
@@ -23,17 +31,8 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
         <Component {...pageProps} key={router.route} />
       </Layout>
       {/* </ThemeProvider> */}
-    </>
+    </SWRConfig>
   )
-}
-
-const theme: DefaultTheme = {
-  // TEST FOR A WHILE
-  colors: {
-    primary: '#fff',
-
-    secondary: '#fff'
-  }
 }
 
 // Only uncomment this method if you have blocking data requirements for

@@ -52,6 +52,7 @@ const InitialLine = styled.p`
 
 export default function UserPage(props: any) {
   const [user, setUser] = useState(undefined as any)
+  const [user1, setUser1] = useState(undefined as any)
   const { id } = useRouter().query // is null,
   // string, or array of string
   let userId: number
@@ -66,20 +67,34 @@ export default function UserPage(props: any) {
   }
 
   useEffect(() => {
+    retrieveUser1('Jegor')
     retrieveUser(userId)
-    // ...
   }, [])
 
   const retrieveUser = (id: number) => {
-    UsersDataService.get(id)
+    UsersDataService.getById(id)
       .then((res: any) => {
         console.log(res.data[0])
+        console.log(res)
         setUser(res.data[0])
       })
       .catch((error: any) => {
         console.error(error)
       })
   }
+  // TEST
+  const retrieveUser1 = (name: string) => {
+    UsersDataService.getByName(name)
+      .then((res: any) => {
+        console.log(res.data[0])
+        console.log(res)
+        setUser1(res.data[0])
+      })
+      .catch((error: any) => {
+        console.error(error)
+      })
+  }
+  // TEST
 
   if (!user) {
     return <h1>Undefined</h1>
