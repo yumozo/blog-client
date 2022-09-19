@@ -161,51 +161,44 @@ const Wrapper = styled.div`
   }
 `
 
-const StyledLink = styled(LinkWithLogo)`
-  display: inline-flex;
-  width: 68px;
-  align-items: center;
-  justify-content: space-between;
-`
+const PostButton = styled(Button)`
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.25em 2em;
+  background-color: #576F72;
+  float: right;
 
-const InitialLine = styled.p`
-  /* align-self: center; */
-  margin-top: 2rem;
-  margin-bottom: 0;
-  color: var(--primary);
-  font-size: 1.25rem;
-  font-weight: 500;
-`
-
-const EditorWrapper = styled.div`
-  padding: 0.5em 0.65em 0.5em;
-  border: 2px solid #00000028;
-  border-radius: 0.5em;
-
-  p {
-    font-size: 0.95rem;
+  &:focus, &:hover {
+    background-color: #7D9D9C;
+    outline: 0;
   }
 `
 
 export default function UserPage(props: any) {
   const [postTitle, setPostTitle] = useState('UNTITLED')
   const [postContent, setPostContent] = useState(content)
+  const [postCategory, setPostCategory] = useState('')
   const time = new Date(Date.now()).toISOString()
 
   const handlePost = () => {
     const data = {
       author_id: 1, // implement it later
       title: postTitle,
-      slug: 'TEMPORARILY-EMPTY', // this too
+      slug: Math.random().toString().slice(2), // this too
       creation_date: time,
       content: postContent
     }
-    if (postTitle !== 'hello') {
-      console.log(data);
+    if (postTitle.length < 5) {
       return
     }
     PostsDataService.createPost(data)
-    router.push('../')
+      .then((res: any) => {
+        console.log(res);
+      })
+      .catch((error: any) => {
+        console.error(error);
+      })
+    router.push('../') // replace with a success message
   }
 
   const editor = useEditor({
@@ -218,21 +211,34 @@ export default function UserPage(props: any) {
 
   return (
     <Article>
-      <br />{/* <Block /> */}
+      <Block />
       <MaxWidthWrapper>
-        <h2>
+        <h3>
           <form>
-            <label htmlFor="title">Title </label>
+            <label htmlFor="title">Title</label>
             <input
-              id="title" type="title" name="title"
+              id="title" type="title" name="title" minLength={5}
               onChange={(e) => setPostTitle(e.target.value)}
             />
           </form>
+          <form>
+            <label htmlFor='category'>Category</label>
+            <select
+              id="category" name="category"
+              onChange={(e) => setPostCategory(e.target.value)}
+            >
+              <option value="React">React</option>
+              <option value="CSS">CSS</option>
+              <option value="NextJS">Next.js</option>
+              <option value="ExpressJS">Express.js</option>
+              <option value="TypeScript">TypeScript</option>
+            </select>
+          </form>
           {/* <Input type="title"></Input> */}
-        </h2>
-        <Button type="button" onClick={handlePost}>
+        </h3>
+        <PostButton type="button" onClick={handlePost}>
           Post
-        </Button>
+        </PostButton>
         <br />
         <br />
         <Wrapper>

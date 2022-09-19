@@ -38,29 +38,17 @@ export const MenuBar = ({ editor }: any) => {
         </Button>
       </div>
       <Button
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? 'is-active' : ''}
-      >
-        bold
-      </Button>
-      <Button
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive('italic') ? 'is-active' : ''}
-      >
-        italic
-      </Button>
-      <Button
         onClick={() => editor.chain().focus().setParagraph().run()}
         className={editor.isActive('paragraph') ? 'is-active' : ''}
       >
         paragraph
       </Button>
-      <Button
+      {/* <Button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
       >
         h1
-      </Button>
+      </Button> */}
       <Button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
@@ -102,6 +90,18 @@ export const MenuBar = ({ editor }: any) => {
         className={editor.isActive('codeBlock') ? 'is-active' : ''}
       >
         code block
+      </Button>
+      <Button
+        onClick={() => editor.chain().focus().toggleBold().run()}
+        className={editor.isActive('bold') ? 'is-active' : ''}
+      >
+        <b>bold</b>
+      </Button>
+      <Button
+        onClick={() => editor.chain().focus().toggleItalic().run()}
+        className={editor.isActive('italic') ? 'is-active' : ''}
+      >
+        <i>italic</i>
       </Button>
     </>
   )

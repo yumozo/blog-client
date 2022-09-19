@@ -2,54 +2,105 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
+import { EditorContent, useEditor } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
 
 import Article from '@components/layout/article'
 import { MaxWidthWrapper } from '@components/styles/max-width-wrapper'
 import Paragraph from '@components/paragraph'
-import ContentPreview from '@components/content-preview'
 import Block from '@components/undernav-grad'
 
 import PostsDataService from '../../services/posts'
-import { EditorContent, useEditor } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
 
-function LinkWithLogo({ children, href, target }: any) {
-  return (
-    <Link href={href}>
-      <a target={target}>
-        <span>
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 512 512"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9a17.56 17.56 0 003.8.4c8.3 0 11.5-6.1 11.5-11.4 0-5.5-.2-19.9-.3-39.1a102.4 102.4 0 01-22.6 2.7c-43.1 0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8 11.2 19.6 26.2 25.1 39.6 25.1a63 63 0 0025.6-6c2-14.8 7.8-24.9 14.2-30.7-49.7-5.8-102-25.5-102-113.5 0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8a18.64 18.64 0 015-.5c8.1 0 26.4 3.1 56.6 24.1a208.21 208.21 0 01112.2 0c30.2-21 48.5-24.1 56.6-24.1a18.64 18.64 0 015 .5c12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6 0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5 0 30.7-.3 55.5-.3 63 0 5.4 3.1 11.5 11.4 11.5a19.35 19.35 0 004-.4C415.9 449.2 480 363.1 480 261.7 480 134.9 379.7 32 256 32z"></path>
-          </svg>
-        </span>
-        {children}
-      </a>
-    </Link>
-  )
-}
+const ContentWrapper = styled.article`
+  .ProseMirror {
+    margin-top: 0.5em;
+    &:focus {
+      outline: 0;
+    }
 
-const StyledLink = styled(LinkWithLogo)`
-  display: inline-flex;
-  width: 68px;
-  align-items: center;
-  justify-content: space-between;
-`
+    > * + * {
+      margin-top: 0.75em;
+    }
 
-const InitialLine = styled.p`
-  /* align-self: center; */
-  margin-top: 2rem;
-  margin-bottom: 0;
-  color: var(--primary);
-  font-size: 1.25rem;
-  font-weight: 500;
+    ul,
+    ol {
+      padding: 0 1rem;
+    }
+
+    h1 {
+      margin-top: 1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 1.1;
+    }
+
+    code {
+      background-color: rgba(#616161, 0.1);
+      color: #616161;
+    }
+
+    pre {
+      background: #0d0d0d;
+      color: #fff;
+      font-family: 'JetBrainsMono', monospace;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+
+      code {
+        color: inherit;
+        padding: 0;
+        background: none;
+        font-size: 0.8rem;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    blockquote {
+      padding-left: 1rem;
+      border-left: 2px solid rgba(#0d0d0d, 0.1);
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid rgba(#0d0d0d, 0.1);
+      margin: 2rem 0;
+    }
+  }
+
+  button {
+    margin-right: 0.25em;
+    margin-top: 0.15em;
+    font-size: 1rem;
+
+    svg {
+      height: 1rem;
+    }
+  }
+  
+  .managing-btns-wrapper {
+    .back-forward-btns {
+      min-width: 25%;
+    }
+
+    .post-btn {
+      background-color: #73A9AD;
+      float: right;
+      &:focus, &:hover {
+        background-color: #90C8AC;
+      }
+    }
+  }
 `
 
 export default function PostPage(props: any) {
@@ -102,32 +153,36 @@ export default function PostPage(props: any) {
   // setting up read-only editor
   const editor = useEditor({
     editable: false,
-    content: post.content,
     extensions: [StarterKit]
   })
-  console.log(editor);
-
   if (!editor) {
-    return <h1>There's troubles with editor</h1>
+    return (
+      <Article>
+        <Block />
+        <MaxWidthWrapper>
+          <h1>There's troubles with editor</h1>
+        </MaxWidthWrapper>
+      </Article>
+    )
   }
+  editor.commands.setContent(post.content)
 
   return (
     <Article>
       <Block />
       <MaxWidthWrapper>
-        <h1>{post.title}</h1>
         <Paragraph>
           <b>Author:</b>{' '}
           <Link href={`../u/${post.authorId}`}>
             <a>{post.authorName}</a>
           </Link>
-          <Paragraph>Publication date: {post.creationDate}</Paragraph>
+          <p>Publication date: {post.creationDate}</p>
         </Paragraph>
-        {/* <div> */}
-          {/* <></> */}
-          <EditorContent editor={editor} />
 
-        {/* </div> */}
+        <h1>{post.title}</h1>
+        <ContentWrapper>
+          <EditorContent editor={editor} />
+        </ContentWrapper>
       </MaxWidthWrapper>
     </Article>
   )
