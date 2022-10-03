@@ -47,7 +47,7 @@
   "include": [
     "next-env.d.ts",
     "src/**/*.ts",
-    "src/**/*.tsx",
+    "src/**/*.tsx", "middleware.ts",
   ],
   "exclude": [
     "node_modules"

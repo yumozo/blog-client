@@ -26,7 +26,7 @@ export default function Form({
       <form onSubmit={onSubmit}>
         <label htmlFor="username">
           <h2>Type your username</h2>
-          <input id='username' type="username" name="username" required />
+          <input id='username' type="text" name="username" required />
         </label>
 
         <Button type="submit">Login</Button>

@@ -86,9 +86,9 @@ export default function UserPage(props: any) {
   const retrieveUser1 = (name: string) => {
     UsersDataService.getByName(name)
       .then((res: any) => {
-        console.log(res.data[0])
+        console.log(res.data)
         console.log(res)
-        setUser1(res.data[0])
+        setUser1(res.data)
       })
       .catch((error: any) => {
         console.error(error)

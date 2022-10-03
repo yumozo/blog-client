@@ -14,6 +14,7 @@ import PostsDataService from '../../services/posts'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { MenuBar } from '@components/editor-bar'
+import useUser from 'lib/useUser'
 
 const content = `
       <h2>
@@ -175,19 +176,24 @@ const PostButton = styled(Button)`
 `
 
 export default function UserPage(props: any) {
+  const { user } = useUser({ redirectTo: '/login' })
   const [postTitle, setPostTitle] = useState('UNTITLED')
   const [postContent, setPostContent] = useState(content)
   const [postCategory, setPostCategory] = useState('')
   const time = new Date(Date.now()).toISOString()
+  const authorId = null;
 
   const handlePost = () => {
     const data = {
-      author_id: 1, // implement it later
+      author_id: user?.user_id,
       title: postTitle,
-      slug: Math.random().toString().slice(2), // this too
+      slug: Math.random().toString().slice(2),
+      summary: postCategory.split(' ').slice(0, 10).join(' '),
       creation_date: time,
-      content: postContent
+      content: postContent,
+      tag: parseInt(postCategory)
     }
+    
     if (postTitle.length < 5) {
       return
     }
@@ -227,11 +233,11 @@ export default function UserPage(props: any) {
               id="category" name="category"
               onChange={(e) => setPostCategory(e.target.value)}
             >
-              <option value="React">React</option>
-              <option value="CSS">CSS</option>
-              <option value="NextJS">Next.js</option>
-              <option value="ExpressJS">Express.js</option>
-              <option value="TypeScript">TypeScript</option>
+              <option value="1">React</option>
+              <option value="2">CSS</option>
+              <option value="3">Next.js</option>
+              <option value="4">Express.js</option>
+              <option value="5">TypeScript</option>
             </select>
           </form>
           {/* <Input type="title"></Input> */}

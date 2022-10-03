@@ -4,6 +4,7 @@ import Dropdown from './dropdown'
 import ThemeSwitch from './theme-switch'
 import styled from 'styled-components'
 import LinkWithLogo from './link-with-logo'
+import useUser from 'lib/useUser'
 
 const NavBar = styled.nav`
   display: flex;
@@ -90,6 +91,8 @@ const LogoWrapper = styled.span`
 `
 
 export default function NavMenu() {
+  const { user } = useUser({ redirectTo: '/login' })
+
   return (
     <StyledNavMenu>
       <NavBar>
@@ -101,6 +104,11 @@ export default function NavMenu() {
 
         <LinksWrapper className="links-wrapper">
           <p>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+          </p>
+          <p>
             <Link href="/new">
               <a>Create Post</a>
             </Link>
@@ -110,21 +118,27 @@ export default function NavMenu() {
               <a>Search</a>
             </Link>
           </p>
-          <p>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </p>
-          <p>
-            <Link href="/signup">
-              <a>Sign up</a>
-            </Link>
-          </p>
-          <p>
-            <Link href="/profile">
-              <a>Profile</a>
-            </Link>
-          </p>
+          {!user?.isLoggedIn &&
+            <>
+              <p>
+                <Link href="/signup">
+                  <a>Sign up</a>
+                </Link>
+              </p>
+              <p>
+                <Link href="/login">
+                  <a>Log in</a>
+                </Link>
+              </p>
+            </>
+          }
+          {user?.isLoggedIn &&
+            <p>
+              <Link href="/profile">
+                <a>Profile</a>
+              </Link>
+            </p>
+          }
         </LinksWrapper>
 
         <ThemeSwitch />

@@ -24,17 +24,21 @@ export default function Login() {
             e.preventDefault()
 
             const body = {
-              username: e.currentTarget.username.value
-            }
+              username: e.currentTarget.username.value,
+            };
 
             try {
+              console.log(body);
+              console.log(JSON.stringify(body));
+              
               mutateUser(
-                await fetchJson('/api/login', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify(body)
-                })
-              )
+                await fetchJson("/api/login", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(body),
+                }),
+                false,
+              );
             } catch (error) {
               if (error instanceof FetchError) {
                 setErrorMsg(error.data.message)

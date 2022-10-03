@@ -29,7 +29,7 @@ async function eventsRoute(req: NextApiRequest, res: NextApiResponse<Events>) {
     //  await octokit.rest.activity.listPublicEventsForUser({
     //    username: user.login
     //  })
-      await usersDataService.find(user.name)
+      await usersDataService.find(user.info)
     // retrieveUser()
 
     // function retrieveUser() {

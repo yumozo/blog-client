@@ -32,9 +32,10 @@ export default function UserPage(props: any) {
       </Article>
     )
   }
+  // sorting posts from newest to oldest
   const sortedPostsByDate = posts.sort((a: any, b: any) => {
-    const aCreationDate = new Date(a.creation_date) as any
-    const bCreationDate = new Date(b.creation_date) as any
+    const aCreationDate = new Date(b.creation_date) as any
+    const bCreationDate = new Date(a.creation_date) as any
     return aCreationDate - bCreationDate
   })
   return (
